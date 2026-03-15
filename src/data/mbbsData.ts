@@ -25,11 +25,126 @@ export interface MBBSCountry {
   benefits: string[];
   eligibility: string[];
   documents: string[];
+  outlook?: string;
+  keyFeatures?: string[];
+  advantages?: string[];
+  disadvantages?: string[];
+  feeStructure?: string[];
+  whyStudy?: string[];
+  extraInfo?: string[];
+  topUniversitiesNote?: string;
 }
 
 const generateSlug = (name: string): string => {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 };
+
+const defaultHeroImage = "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800";
+const defaultEligibility = [
+  "Minimum 50% in PCB (typical baseline; varies by university)",
+  "NEET qualification required for Indian students (as per NMC guidelines)",
+  "Age 17+ at admission",
+  "Valid passport and academic documents",
+  "English proficiency may be required by some universities",
+];
+
+const defaultDocuments = [
+  "10th & 12th marksheets",
+  "NEET scorecard",
+  "Valid passport",
+  "Birth certificate",
+  "Passport-size photographs",
+  "Medical fitness certificate",
+  "Bank statements / sponsor letter",
+  "University offer letter and visa forms",
+];
+
+const defaultKeyFeatures = [
+  "Multiple intakes depending on university calendar",
+  "Clinical training in affiliated teaching hospitals",
+  "English-medium programs available at selected universities",
+  "International student support services",
+];
+
+const defaultAdvantages = [
+  "Global exposure and diverse patient cases",
+  "Program options across public and private universities",
+  "Structured curriculum with clinical focus",
+  "Counsellor support for documentation and visa",
+];
+
+const defaultDisadvantages = [
+  "Fees and recognition vary by university; due diligence required",
+  "Living costs can vary widely by city",
+  "Local language may be needed for some clinical rotations",
+  "Visa timelines can be strict depending on intake",
+];
+
+const defaultFeeStructure = [
+  "Tuition fee: varies by university and program duration",
+  "Hostel/accommodation: depends on city and housing type",
+  "Living expenses: food, transport, utilities",
+  "Insurance, visa, and administrative charges",
+  "One-time admission/registration fees (if applicable)",
+];
+
+const defaultWhyStudy = [
+  "Opportunity to study medicine in a global environment",
+  "Access to different healthcare systems and clinical protocols",
+  "Eligibility to take licensing exams after graduation (check latest rules)",
+  "Guided pathway for Indian students from admission to visa",
+];
+
+const defaultExtraInfo = [
+  "We verify university recognition and eligibility before finalizing a shortlist.",
+  "We provide a personalized budget sheet during counselling.",
+];
+
+const buildCountryDescription = (name: string) =>
+  `${name} is a popular destination for students exploring MBBS options abroad. Programs, fees, and admissions vary by university and intake.`;
+
+const buildCountryOutlook = (name: string) =>
+  `Our counsellors evaluate recognition, language of instruction, clinical exposure, and total cost to help you plan MBBS in ${name}.`;
+
+interface CountryTemplateInput {
+  name: string;
+  slug: string;
+  flag: string;
+  heroImage?: string;
+  description?: string;
+  outlook?: string;
+  keyFeatures?: string[];
+  advantages?: string[];
+  disadvantages?: string[];
+  feeStructure?: string[];
+  whyStudy?: string[];
+  extraInfo?: string[];
+  benefits?: string[];
+  eligibility?: string[];
+  documents?: string[];
+  universities?: MBBSUniversity[];
+  topUniversitiesNote?: string;
+}
+
+const createCountryTemplate = (input: CountryTemplateInput): MBBSCountry => ({
+  name: input.name,
+  slug: input.slug,
+  flag: input.flag,
+  heroImage: input.heroImage || defaultHeroImage,
+  description: input.description || buildCountryDescription(input.name),
+  outlook: input.outlook || buildCountryOutlook(input.name),
+  keyFeatures: input.keyFeatures || defaultKeyFeatures,
+  advantages: input.advantages || defaultAdvantages,
+  disadvantages: input.disadvantages || defaultDisadvantages,
+  feeStructure: input.feeStructure || defaultFeeStructure,
+  whyStudy: input.whyStudy || defaultWhyStudy,
+  extraInfo: input.extraInfo || defaultExtraInfo,
+  benefits: input.benefits || defaultKeyFeatures,
+  eligibility: input.eligibility || defaultEligibility,
+  documents: input.documents || defaultDocuments,
+  universities: input.universities || [],
+  topUniversitiesNote: input.topUniversitiesNote || "Shortlist shared after profile review.",
+});
 
 export const mbbsCountries: MBBSCountry[] = [
   {
@@ -759,6 +874,57 @@ export const mbbsCountries: MBBSCountry[] = [
     eligibility: ["50% in PCB for General", "NEET Qualified", "17 years of age"],
     documents: ["10th & 12th Marksheets", "NEET Scorecard", "Passport", "Birth Certificate", "Medical Certificate"]
   },
+  createCountryTemplate({ name: "Philippines", slug: "philippines", flag: "🇵🇭" }),
+  createCountryTemplate({ name: "Georgia", slug: "georgia", flag: "🇬🇪" }),
+  createCountryTemplate({ name: "Armenia", slug: "armenia", flag: "🇦🇲" }),
+  createCountryTemplate({ name: "Ukraine", slug: "ukraine", flag: "🇺🇦" }),
+  createCountryTemplate({ name: "China", slug: "china", flag: "🇨🇳" }),
+  createCountryTemplate({ name: "Poland", slug: "poland", flag: "🇵🇱" }),
+  createCountryTemplate({ name: "Czech Republic", slug: "czech-republic", flag: "🇨🇿" }),
+  createCountryTemplate({ name: "Croatia", slug: "croatia", flag: "🇭🇷" }),
+  createCountryTemplate({ name: "Latvia", slug: "latvia", flag: "🇱🇻" }),
+  createCountryTemplate({ name: "Uzbekistan", slug: "uzbekistan", flag: "🇺🇿" }),
+  createCountryTemplate({ name: "Mauritius", slug: "mauritius", flag: "🇲🇺" }),
+  createCountryTemplate({ name: "Italy", slug: "italy", flag: "🇮🇹" }),
+  createCountryTemplate({ name: "Romania", slug: "romania", flag: "🇷🇴" }),
+  createCountryTemplate({ name: "Hungary", slug: "hungary", flag: "🇭🇺" }),
+  createCountryTemplate({ name: "Turkey", slug: "turkey", flag: "🇹🇷" }),
+  createCountryTemplate({
+    name: "India",
+    slug: "india",
+    flag: "🇮🇳",
+    description:
+      "India offers MBBS programs through government and private medical colleges. Admissions, fees, and seat availability vary by category and institution.",
+    outlook:
+      "We guide students through NEET-based admissions, college shortlisting, and documentation to find the right MBBS seat in India.",
+    keyFeatures: [
+      "Large network of government and private medical colleges",
+      "NEET-based admission process",
+      "5.5-year MBBS including internship",
+      "Clinical exposure in diverse hospitals",
+    ],
+    advantages: [
+      "Stay close to home with familiar culture",
+      "Strong clinical exposure",
+      "Wide range of college options",
+      "Eligibility for Indian licensing pathway",
+    ],
+    disadvantages: [
+      "High competition for government seats",
+      "Private college fees can be high",
+      "Seat availability varies by state quotas",
+    ],
+    whyStudy: [
+      "Established medical education ecosystem",
+      "Internship and licensing pathway in India",
+      "Access to a wide range of specializations",
+    ],
+    topUniversitiesNote: "Top government and private college list shared after NEET results.",
+  }),
+  createCountryTemplate({ name: "Timor-Leste", slug: "timor-leste", flag: "🇹🇱" }),
+  createCountryTemplate({ name: "Finland", slug: "finland", flag: "🇫🇮" }),
+  createCountryTemplate({ name: "Ireland", slug: "ireland", flag: "🇮🇪" }),
+  createCountryTemplate({ name: "Malaysia", slug: "malaysia", flag: "🇲🇾" }),
 ];
 
 export const comparisonData = [

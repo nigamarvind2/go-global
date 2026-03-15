@@ -180,7 +180,9 @@ const MBBSOverseas = () => {
                 <h3 className="font-bold text-foreground group-hover:text-primary transition-colors">
                   {country.name}
                 </h3>
-                <p className="text-xs text-muted-foreground mt-1">{country.universities.length}+ Universities</p>
+                <p className="text-xs text-muted-foreground mt-1">
+                  {country.universities.length > 0 ? `${country.universities.length}+ Universities` : "Shortlist on request"}
+                </p>
               </Link>
             ))}
           </div>

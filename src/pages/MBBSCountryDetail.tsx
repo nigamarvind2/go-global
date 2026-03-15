@@ -23,6 +23,19 @@ const MBBSCountryDetail = () => {
   const { country } = useParams<{ country: string }>();
   const countryData = country ? getMBBSCountryBySlug(country) : undefined;
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
+  const fallbackFeeStructure = [
+    "Tuition fee: varies by university and program duration",
+    "Hostel/accommodation: depends on city and housing type",
+    "Living expenses: food, transport, utilities",
+    "Insurance, visa, and administrative charges",
+    "One-time admission/registration fees (if applicable)",
+  ];
+  const fallbackDisadvantages = [
+    "Fees and recognition vary by university; due diligence required",
+    "Living costs can vary widely by city",
+    "Local language may be needed for some clinical rotations",
+    "Visa timelines can be strict depending on intake",
+  ];
 
   if (!countryData) {
     return (
@@ -115,6 +128,127 @@ const MBBSCountryDetail = () => {
         </div>
       </section>
 
+      {/* Country Overview */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-8">
+            <Card>
+              <CardHeader>
+                <CardTitle>Basic Outlook</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  {countryData.outlook || countryData.description}
+                </p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Key Features</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3">
+                  {(countryData.keyFeatures || countryData.benefits).map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8 mt-8">
+            <Card>
+              <CardHeader>
+                <CardTitle>Advantages</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3">
+                  {(countryData.advantages || countryData.benefits).map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Disadvantages / Considerations</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3">
+                  {(countryData.disadvantages || fallbackDisadvantages).map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8 mt-8">
+            <Card>
+              <CardHeader>
+                <CardTitle>Fee Structure (Typical)</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3">
+                  {(countryData.feeStructure || fallbackFeeStructure).map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Why Study in {countryData.name}?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3">
+                  {(countryData.whyStudy || countryData.benefits).map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+
+          {countryData.extraInfo && countryData.extraInfo.length > 0 ? (
+            <Card className="mt-8">
+              <CardHeader>
+                <CardTitle>Additional Notes</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3">
+                  {countryData.extraInfo.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          ) : null}
+          <p className="text-xs text-muted-foreground mt-6">
+            Information is indicative and may change by university, intake, and regulations. We share the latest verified
+            details during counselling.
+          </p>
+        </div>
+      </section>
+
       {/* Universities Section */}
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
@@ -123,51 +257,66 @@ const MBBSCountryDetail = () => {
               Top Medical Universities in {countryData.name}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              NMC & WHO approved universities offering quality medical education
+              Verified university options based on current recognition lists and intake availability
             </p>
           </div>
-
-          <Card>
-            <CardContent className="p-0">
-              <Table>
-                <TableHeader>
-                  <TableRow className="bg-primary">
-                    <TableHead className="text-primary-foreground font-bold">University</TableHead>
-                    <TableHead className="text-primary-foreground font-bold">Location</TableHead>
-                    <TableHead className="text-primary-foreground font-bold">Tuition Fee</TableHead>
-                    <TableHead className="text-primary-foreground font-bold">Duration</TableHead>
-                    <TableHead className="text-primary-foreground font-bold">Recognition</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {countryData.universities.map((uni, index) => (
-                    <TableRow key={index} className={index % 2 === 0 ? "bg-muted/30" : ""}>
-                      <TableCell className="font-medium">
-                        <Link 
-                          to={`/mbbs-overseas/${country}/${uni.slug}`}
-                          className="text-primary hover:underline"
-                        >
-                          {uni.name}
-                        </Link>
-                      </TableCell>
-                      <TableCell>{uni.location}</TableCell>
-                      <TableCell className="text-primary font-semibold">{uni.tuitionFee}</TableCell>
-                      <TableCell>{uni.duration}</TableCell>
-                      <TableCell>
-                        <div className="flex flex-wrap gap-1">
-                          {uni.recognition.map((rec, idx) => (
-                            <Badge key={idx} variant="secondary" className="text-xs">
-                              {rec}
-                            </Badge>
-                          ))}
-                        </div>
-                      </TableCell>
+          {countryData.universities.length > 0 ? (
+            <Card>
+              <CardContent className="p-0">
+                <Table>
+                  <TableHeader>
+                    <TableRow className="bg-primary">
+                      <TableHead className="text-primary-foreground font-bold">University</TableHead>
+                      <TableHead className="text-primary-foreground font-bold">Location</TableHead>
+                      <TableHead className="text-primary-foreground font-bold">Tuition Fee</TableHead>
+                      <TableHead className="text-primary-foreground font-bold">Duration</TableHead>
+                      <TableHead className="text-primary-foreground font-bold">Recognition</TableHead>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </CardContent>
-          </Card>
+                  </TableHeader>
+                  <TableBody>
+                    {countryData.universities.map((uni, index) => (
+                      <TableRow key={index} className={index % 2 === 0 ? "bg-muted/30" : ""}>
+                        <TableCell className="font-medium">
+                          <Link 
+                            to={`/mbbs-overseas/${country}/${uni.slug}`}
+                            className="text-primary hover:underline"
+                          >
+                            {uni.name}
+                          </Link>
+                        </TableCell>
+                        <TableCell>{uni.location}</TableCell>
+                        <TableCell className="text-primary font-semibold">{uni.tuitionFee}</TableCell>
+                        <TableCell>{uni.duration}</TableCell>
+                        <TableCell>
+                          <div className="flex flex-wrap gap-1">
+                            {uni.recognition.map((rec, idx) => (
+                              <Badge key={idx} variant="secondary" className="text-xs">
+                                {rec}
+                              </Badge>
+                            ))}
+                          </div>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </CardContent>
+            </Card>
+          ) : (
+            <Card>
+              <CardContent className="py-8 text-center">
+                <p className="text-lg font-semibold text-foreground mb-2">
+                  {countryData.topUniversitiesNote || "Top university list shared during counselling."}
+                </p>
+                <p className="text-sm text-muted-foreground mb-6">
+                  We share verified university options and fee sheets after a quick profile review.
+                </p>
+                <Button onClick={() => setIsEnquiryOpen(true)}>
+                  Request University Shortlist
+                </Button>
+              </CardContent>
+            </Card>
+          )}
         </div>
       </section>
 
