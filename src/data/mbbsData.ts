@@ -100,6 +100,22 @@ const defaultExtraInfo = [
   "We provide a personalized budget sheet during counselling.",
 ];
 
+const defaultUniversityRecognition = ["WDOMS (verify)", "NMC eligibility (verify)"];
+
+const buildUniversity = (
+  name: string,
+  location: string,
+  overrides: Partial<MBBSUniversity> = {},
+): MBBSUniversity => ({
+  name,
+  slug: generateSlug(name),
+  location,
+  tuitionFee: "Contact for latest",
+  duration: "5-6 years",
+  recognition: defaultUniversityRecognition,
+  ...overrides,
+});
+
 const buildCountryDescription = (name: string) =>
   `${name} is a popular destination for students exploring MBBS options abroad. Programs, fees, and admissions vary by university and intake.`;
 
@@ -874,21 +890,181 @@ export const mbbsCountries: MBBSCountry[] = [
     eligibility: ["50% in PCB for General", "NEET Qualified", "17 years of age"],
     documents: ["10th & 12th Marksheets", "NEET Scorecard", "Passport", "Birth Certificate", "Medical Certificate"]
   },
-  createCountryTemplate({ name: "Philippines", slug: "philippines", flag: "🇵🇭" }),
-  createCountryTemplate({ name: "Georgia", slug: "georgia", flag: "🇬🇪" }),
-  createCountryTemplate({ name: "Armenia", slug: "armenia", flag: "🇦🇲" }),
-  createCountryTemplate({ name: "Ukraine", slug: "ukraine", flag: "🇺🇦" }),
-  createCountryTemplate({ name: "China", slug: "china", flag: "🇨🇳" }),
-  createCountryTemplate({ name: "Poland", slug: "poland", flag: "🇵🇱" }),
-  createCountryTemplate({ name: "Czech Republic", slug: "czech-republic", flag: "🇨🇿" }),
-  createCountryTemplate({ name: "Croatia", slug: "croatia", flag: "🇭🇷" }),
-  createCountryTemplate({ name: "Latvia", slug: "latvia", flag: "🇱🇻" }),
-  createCountryTemplate({ name: "Uzbekistan", slug: "uzbekistan", flag: "🇺🇿" }),
-  createCountryTemplate({ name: "Mauritius", slug: "mauritius", flag: "🇲🇺" }),
-  createCountryTemplate({ name: "Italy", slug: "italy", flag: "🇮🇹" }),
-  createCountryTemplate({ name: "Romania", slug: "romania", flag: "🇷🇴" }),
-  createCountryTemplate({ name: "Hungary", slug: "hungary", flag: "🇭🇺" }),
-  createCountryTemplate({ name: "Turkey", slug: "turkey", flag: "🇹🇷" }),
+  createCountryTemplate({
+    name: "Philippines",
+    slug: "philippines",
+    flag: "🇵🇭",
+    universities: [
+      buildUniversity("University of the Philippines Manila", "Manila"),
+      buildUniversity("University of Santo Tomas Faculty of Medicine and Surgery", "Manila"),
+      buildUniversity("Ateneo de Manila University School of Medicine and Public Health", "Pasig, Metro Manila"),
+      buildUniversity("De La Salle Medical and Health Sciences Institute", "Dasmarinas"),
+      buildUniversity("Cebu Institute of Medicine", "Cebu City"),
+    ],
+  }),
+  createCountryTemplate({
+    name: "Georgia",
+    slug: "georgia",
+    flag: "🇬🇪",
+    universities: [
+      buildUniversity("Tbilisi State Medical University", "Tbilisi"),
+      buildUniversity("David Tvildiani Medical University", "Tbilisi"),
+      buildUniversity("Georgian National University SEU", "Tbilisi"),
+      buildUniversity("University of Georgia", "Tbilisi"),
+      buildUniversity("Batumi Shota Rustaveli State University", "Batumi"),
+    ],
+  }),
+  createCountryTemplate({
+    name: "Armenia",
+    slug: "armenia",
+    flag: "🇦🇲",
+    universities: [
+      buildUniversity("Yerevan State Medical University", "Yerevan"),
+      buildUniversity("Armenian Medical Institute", "Yerevan"),
+      buildUniversity("University of Traditional Medicine", "Yerevan"),
+      buildUniversity("Yerevan State University Faculty of Medicine", "Yerevan"),
+      buildUniversity("St. Theresa Medical University", "Yerevan"),
+    ],
+  }),
+  createCountryTemplate({
+    name: "Ukraine",
+    slug: "ukraine",
+    flag: "🇺🇦",
+    universities: [
+      buildUniversity("Bogomolets National Medical University", "Kyiv"),
+      buildUniversity("Lviv National Medical University", "Lviv"),
+      buildUniversity("Kharkiv National Medical University", "Kharkiv"),
+      buildUniversity("Odesa National Medical University", "Odesa"),
+      buildUniversity("Dnipro State Medical University", "Dnipro"),
+    ],
+  }),
+  createCountryTemplate({
+    name: "China",
+    slug: "china",
+    flag: "🇨🇳",
+    universities: [
+      buildUniversity("Peking University Health Science Center", "Beijing"),
+      buildUniversity("Fudan University Shanghai Medical College", "Shanghai"),
+      buildUniversity("Shanghai Jiao Tong University School of Medicine", "Shanghai"),
+      buildUniversity("Zhejiang University School of Medicine", "Hangzhou"),
+      buildUniversity("Sun Yat-sen University Zhongshan School of Medicine", "Guangzhou"),
+    ],
+  }),
+  createCountryTemplate({
+    name: "Poland",
+    slug: "poland",
+    flag: "🇵🇱",
+    universities: [
+      buildUniversity("Medical University of Warsaw", "Warsaw"),
+      buildUniversity("Jagiellonian University Medical College", "Krakow"),
+      buildUniversity("Medical University of Gdansk", "Gdansk"),
+      buildUniversity("Poznan University of Medical Sciences", "Poznan"),
+      buildUniversity("Medical University of Lublin", "Lublin"),
+    ],
+  }),
+  createCountryTemplate({
+    name: "Czech Republic",
+    slug: "czech-republic",
+    flag: "🇨🇿",
+    universities: [
+      buildUniversity("Charles University First Faculty of Medicine", "Prague"),
+      buildUniversity("Charles University Second Faculty of Medicine", "Prague"),
+      buildUniversity("Charles University Third Faculty of Medicine", "Prague"),
+      buildUniversity("Masaryk University Faculty of Medicine", "Brno"),
+      buildUniversity("Palacky University Faculty of Medicine", "Olomouc"),
+    ],
+  }),
+  createCountryTemplate({
+    name: "Croatia",
+    slug: "croatia",
+    flag: "🇭🇷",
+    universities: [
+      buildUniversity("University of Zagreb School of Medicine", "Zagreb"),
+      buildUniversity("University of Split School of Medicine", "Split"),
+      buildUniversity("University of Rijeka Faculty of Medicine", "Rijeka"),
+      buildUniversity("Josip Juraj Strossmayer University of Osijek Faculty of Medicine", "Osijek"),
+    ],
+  }),
+  createCountryTemplate({
+    name: "Latvia",
+    slug: "latvia",
+    flag: "🇱🇻",
+    universities: [
+      buildUniversity("Riga Stradins University", "Riga"),
+      buildUniversity("University of Latvia Faculty of Medicine", "Riga"),
+    ],
+  }),
+  createCountryTemplate({
+    name: "Uzbekistan",
+    slug: "uzbekistan",
+    flag: "🇺🇿",
+    universities: [
+      buildUniversity("Tashkent Medical Academy", "Tashkent"),
+      buildUniversity("Samarkand State Medical University", "Samarkand"),
+      buildUniversity("Bukhara State Medical Institute", "Bukhara"),
+      buildUniversity("Andijan State Medical Institute", "Andijan"),
+      buildUniversity("Tashkent Pediatric Medical Institute", "Tashkent"),
+    ],
+  }),
+  createCountryTemplate({
+    name: "Mauritius",
+    slug: "mauritius",
+    flag: "🇲🇺",
+    universities: [
+      buildUniversity("Sir Seewoosagur Ramgoolam Medical College", "Belle Rive"),
+      buildUniversity("Anna Medical College", "Vacoas-Phoenix"),
+      buildUniversity("JSS School of Medicine (Mauritius)", "Vacoas"),
+      buildUniversity("Dr. D. Y. Patil Medical College (Mauritius)", "Mauritius"),
+      buildUniversity("University of Mauritius Faculty of Medicine and Health Sciences", "Reduit"),
+    ],
+  }),
+  createCountryTemplate({
+    name: "Italy",
+    slug: "italy",
+    flag: "🇮🇹",
+    universities: [
+      buildUniversity("Sapienza University of Rome", "Rome"),
+      buildUniversity("University of Milan", "Milan"),
+      buildUniversity("University of Bologna", "Bologna"),
+      buildUniversity("University of Padua", "Padua"),
+      buildUniversity("University of Pavia", "Pavia"),
+    ],
+  }),
+  createCountryTemplate({
+    name: "Romania",
+    slug: "romania",
+    flag: "🇷🇴",
+    universities: [
+      buildUniversity("Carol Davila University of Medicine and Pharmacy", "Bucharest"),
+      buildUniversity("Iuliu Hatieganu University of Medicine and Pharmacy", "Cluj-Napoca"),
+      buildUniversity("Grigore T. Popa University of Medicine and Pharmacy", "Iasi"),
+      buildUniversity("Victor Babes University of Medicine and Pharmacy", "Timisoara"),
+      buildUniversity("University of Medicine and Pharmacy of Craiova", "Craiova"),
+    ],
+  }),
+  createCountryTemplate({
+    name: "Hungary",
+    slug: "hungary",
+    flag: "🇭🇺",
+    universities: [
+      buildUniversity("Semmelweis University", "Budapest"),
+      buildUniversity("University of Debrecen", "Debrecen"),
+      buildUniversity("University of Szeged", "Szeged"),
+      buildUniversity("University of Pecs", "Pecs"),
+    ],
+  }),
+  createCountryTemplate({
+    name: "Turkey",
+    slug: "turkey",
+    flag: "🇹🇷",
+    universities: [
+      buildUniversity("Hacettepe University", "Ankara"),
+      buildUniversity("Istanbul University-Cerrahpasa", "Istanbul"),
+      buildUniversity("Ankara University", "Ankara"),
+      buildUniversity("Ege University", "Izmir"),
+      buildUniversity("Koc University", "Istanbul"),
+    ],
+  }),
   createCountryTemplate({
     name: "India",
     slug: "india",
@@ -919,12 +1095,71 @@ export const mbbsCountries: MBBSCountry[] = [
       "Internship and licensing pathway in India",
       "Access to a wide range of specializations",
     ],
-    topUniversitiesNote: "Top government and private college list shared after NEET results.",
+    universities: [
+      buildUniversity("All India Institute of Medical Sciences (AIIMS) New Delhi", "New Delhi", {
+        duration: "5.5 years (incl. internship)",
+      }),
+      buildUniversity("Christian Medical College", "Vellore", {
+        duration: "5.5 years (incl. internship)",
+      }),
+      buildUniversity("Armed Forces Medical College", "Pune", {
+        duration: "5.5 years (incl. internship)",
+      }),
+      buildUniversity("Maulana Azad Medical College", "New Delhi", {
+        duration: "5.5 years (incl. internship)",
+      }),
+      buildUniversity("King George's Medical University", "Lucknow", {
+        duration: "5.5 years (incl. internship)",
+      }),
+    ],
+    topUniversitiesNote: "Representative list shared; final shortlist depends on NEET rank and counselling.",
   }),
-  createCountryTemplate({ name: "Timor-Leste", slug: "timor-leste", flag: "🇹🇱" }),
-  createCountryTemplate({ name: "Finland", slug: "finland", flag: "🇫🇮" }),
-  createCountryTemplate({ name: "Ireland", slug: "ireland", flag: "🇮🇪" }),
-  createCountryTemplate({ name: "Malaysia", slug: "malaysia", flag: "🇲🇾" }),
+  createCountryTemplate({
+    name: "Timor-Leste",
+    slug: "timor-leste",
+    flag: "🇹🇱",
+    universities: [
+      buildUniversity("Universidade Nacional Timor Lorosa'e (UNTL) Faculty of Medicine", "Dili"),
+      buildUniversity("Universidade Catolica Timorense (UCT) Faculty of Medical Sciences", "Dili"),
+      buildUniversity("Universidade da Paz (UNPAZ) Faculty of Medicine", "Dili"),
+    ],
+  }),
+  createCountryTemplate({
+    name: "Finland",
+    slug: "finland",
+    flag: "🇫🇮",
+    universities: [
+      buildUniversity("University of Helsinki Faculty of Medicine", "Helsinki"),
+      buildUniversity("University of Turku Faculty of Medicine", "Turku"),
+      buildUniversity("University of Oulu Faculty of Medicine", "Oulu"),
+      buildUniversity("Tampere University Faculty of Medicine and Health Technology", "Tampere"),
+      buildUniversity("University of Eastern Finland Faculty of Health Sciences", "Kuopio"),
+    ],
+  }),
+  createCountryTemplate({
+    name: "Ireland",
+    slug: "ireland",
+    flag: "🇮🇪",
+    universities: [
+      buildUniversity("Trinity College Dublin", "Dublin"),
+      buildUniversity("University College Dublin", "Dublin"),
+      buildUniversity("University College Cork", "Cork"),
+      buildUniversity("University of Galway", "Galway"),
+      buildUniversity("Royal College of Surgeons in Ireland", "Dublin"),
+    ],
+  }),
+  createCountryTemplate({
+    name: "Malaysia",
+    slug: "malaysia",
+    flag: "🇲🇾",
+    universities: [
+      buildUniversity("University of Malaya", "Kuala Lumpur"),
+      buildUniversity("Universiti Kebangsaan Malaysia (UKM)", "Bangi"),
+      buildUniversity("Universiti Sains Malaysia (USM)", "Penang"),
+      buildUniversity("Universiti Putra Malaysia (UPM)", "Serdang"),
+      buildUniversity("Monash University Malaysia", "Subang Jaya"),
+    ],
+  }),
 ];
 
 export const comparisonData = [
