@@ -394,7 +394,11 @@ const MBBSCountryDetail = () => {
               Apply Now - Free Consultation
             </Button>
             <a href="tel:+919166664558">
-              <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-primary-foreground/60 bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+              >
                 <Phone className="w-4 h-4 mr-2" />
                 Call: +91 91666 64558
               </Button>
