@@ -65,7 +65,7 @@ const WhyChooseUs = () => {
           {/* Image */}
           <div className="relative">
             <img 
-              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=500&fit=crop"
+              src="/assets/unsplash-1523240795612-9a054b0db644.jpg"
               alt="Students in consultation"
               className="rounded-3xl shadow-2xl"
             />

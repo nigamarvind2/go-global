@@ -69,7 +69,7 @@ const Hero = () => {
           <div className="relative lg:pl-8">
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?w=700&h=800&fit=crop"
+                src="/assets/unsplash-1523580846011-d3a5bc25702b.jpg"
                 alt="Students preparing for global education"
                 className="rounded-[32px] shadow-2xl w-full object-cover"
               />

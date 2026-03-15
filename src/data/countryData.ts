@@ -25,7 +25,7 @@ export const countryData: Record<string, CountryData> = {
     name: "Australia",
     slug: "australia",
     flag: "🇦🇺",
-    heroImage: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=1200&h=800&fit=crop",
+    heroImage: "/assets/unsplash-1506973035872-a4ec16b8e8d9.jpg",
     heroDescription: "For those who envisage a new overseas career, study in Australia has a lot to offer. Though this country sticks to its culture, its modern lifestyle is highly regarded by the aspirants. The Higher education institutions in Australia are ranked among the best in the world. The CRICOS code given to international students declares that study in Australia has achieved worldwide recognition. The higher education courses are shorter and intensive which ensures value for money. Australian universities provide post-study work permits to international students which also play a pivotal role in getting PR. The duration of master courses ranges from one to two years. The visa process is fair and straightforward.",
     highlights: [
       "Globally recognised courses and institutions",
@@ -97,7 +97,7 @@ export const countryData: Record<string, CountryData> = {
     name: "United Kingdom",
     slug: "uk",
     flag: "🇬🇧",
-    heroImage: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&h=800&fit=crop",
+    heroImage: "/assets/unsplash-1513635269975-59663e0ac1ad.jpg",
     heroDescription: "The United Kingdom is home to some of the world's oldest and most prestigious universities. With centuries of academic excellence, the UK offers a rich cultural experience alongside world-class education. British universities are known for their research excellence and innovative teaching methods. The UK's multicultural environment welcomes students from all over the world, providing a truly international experience. With the Graduate Route visa, international students can stay and work in the UK for up to 2 years after completing their degree.",
     highlights: [
       "Home to world-renowned universities",
@@ -169,7 +169,7 @@ export const countryData: Record<string, CountryData> = {
     name: "United States",
     slug: "usa",
     flag: "🇺🇸",
-    heroImage: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=1200&h=800&fit=crop",
+    heroImage: "/assets/unsplash-1485738422979-f5c462d49f74.jpg",
     heroDescription: "The United States is the world's leading destination for international students, home to the most prestigious universities and colleges. American higher education emphasizes innovation, research, and practical learning. With diverse campus experiences, cutting-edge facilities, and unparalleled networking opportunities, studying in the USA opens doors to global careers. The Optional Practical Training (OPT) program allows international students to work in their field of study for up to 3 years after graduation in STEM fields.",
     highlights: [
       "Home to Ivy League universities",
@@ -241,7 +241,7 @@ export const countryData: Record<string, CountryData> = {
     name: "Canada",
     slug: "canada",
     flag: "🇨🇦",
-    heroImage: "https://images.unsplash.com/photo-1517935706615-2717063c2225?w=1200&h=800&fit=crop",
+    heroImage: "/assets/unsplash-1517935706615-2717063c2225.jpg",
     heroDescription: "Canada is one of the most welcoming countries for international students, known for its high-quality education, multicultural society, and excellent post-study work opportunities. Canadian universities are globally recognized for their academic excellence and research. The Post-Graduation Work Permit (PGWP) allows students to work in Canada for up to 3 years after graduation, and Canada's immigration-friendly policies provide clear pathways to permanent residency.",
     highlights: [
       "Affordable tuition compared to US/UK",
@@ -313,7 +313,7 @@ export const countryData: Record<string, CountryData> = {
     name: "Germany",
     slug: "germany",
     flag: "🇩🇪",
-    heroImage: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1200&h=800&fit=crop",
+    heroImage: "/assets/unsplash-1467269204594-9661b134dd2b.jpg",
     heroDescription: "Germany is Europe's economic powerhouse and a top destination for international students, especially those interested in engineering, technology, and research. Most public universities in Germany offer tuition-free education, even for international students. With its strong economy, excellent job prospects, and high quality of life, Germany provides an ideal environment for academic and professional growth. The Job Seeker Visa allows graduates to stay for up to 18 months to find employment.",
     highlights: [
       "Tuition-free at public universities",
@@ -385,7 +385,7 @@ export const countryData: Record<string, CountryData> = {
     name: "Ireland",
     slug: "ireland",
     flag: "🇮🇪",
-    heroImage: "https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?w=1200&h=800&fit=crop",
+    heroImage: "/assets/unsplash-1590089415225-401ed6f9db8e.jpg",
     heroDescription: "Ireland offers a unique combination of high-quality education, friendly culture, and excellent career opportunities, especially in the technology sector. As an English-speaking country in the European Union, Ireland provides a gateway to Europe's job market. Many global tech giants including Google, Facebook, Apple, and Microsoft have their European headquarters in Ireland. The Stay Back Option allows graduates to remain in Ireland for up to 2 years to seek employment.",
     highlights: [
       "English-speaking EU country",
@@ -457,7 +457,7 @@ export const countryData: Record<string, CountryData> = {
     name: "New Zealand",
     slug: "new-zealand",
     flag: "🇳🇿",
-    heroImage: "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=1200&h=800&fit=crop",
+    heroImage: "/assets/unsplash-1507699622108-4be3abd695ad.jpg",
     heroDescription: "New Zealand offers a perfect blend of world-class education and an unparalleled quality of life. Known for its stunning natural beauty, safe environment, and welcoming culture, New Zealand is an ideal destination for international students. All eight universities in New Zealand are ranked in the top 3% globally. The Post-Study Work Visa allows graduates to stay and work in New Zealand for up to 3 years, with clear pathways to residency.",
     highlights: [
       "All 8 universities in top 3% globally",
@@ -525,7 +525,7 @@ export const countryData: Record<string, CountryData> = {
     name: "France",
     slug: "france",
     flag: "🇫🇷",
-    heroImage: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1200&h=800&fit=crop",
+    heroImage: "/assets/unsplash-1502602898657-3e91760cbb34.jpg",
     heroDescription: "France is one of the world's most popular study destinations, renowned for its prestigious universities, rich culture, and excellent quality of life. From the Grandes Écoles to world-class business schools, France offers exceptional education at affordable costs. The country's central European location makes it perfect for exploring the continent. After graduation, international students can apply for a job-seeker visa or work permit.",
     highlights: [
       "Prestigious Grandes Écoles",

@@ -86,7 +86,7 @@ const MBBSOverseas = () => {
             </div>
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800"
+                src="/assets/unsplash-1523580846011-d3a5bc25702b.jpg"
                 alt="Medical students"
                 className="rounded-2xl shadow-2xl w-full"
               />
@@ -237,11 +237,15 @@ const MBBSOverseas = () => {
             handle documentation, and support you throughout your medical education journey.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" variant="secondary" onClick={() => setIsEnquiryOpen(true)}>
+            <Button size="lg" variant="secondary" className="text-slate-900" onClick={() => setIsEnquiryOpen(true)}>
               Get Free Consultation
             </Button>
             <a href="tel:+919166664558">
-              <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-primary-foreground bg-background text-slate-900 hover:bg-white hover:text-slate-900"
+              >
                 <Phone className="w-4 h-4 mr-2" />
                 Call: +91 91666 64558
               </Button>

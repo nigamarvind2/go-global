@@ -39,7 +39,7 @@ const generateSlug = (name: string): string => {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 };
 
-const defaultHeroImage = "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800";
+const defaultHeroImage = "/assets/unsplash-1523580846011-d3a5bc25702b.jpg";
 const defaultEligibility = [
   "Minimum 50% in PCB (typical baseline; varies by university)",
   "NEET qualification required for Indian students (as per NMC guidelines)",
@@ -151,7 +151,7 @@ export const mbbsCountries: MBBSCountry[] = [
     name: "Russia",
     slug: "russia",
     flag: "🇷🇺",
-    heroImage: "https://images.unsplash.com/photo-1513326738677-b964603b136d?w=800",
+    heroImage: "/assets/unsplash-1513326738677-b964603b136d.jpg",
     description: "Russia is one of the top destinations for MBBS abroad with world-class medical universities, affordable fees, and globally recognized degrees.",
     universities: [
       { 
@@ -365,7 +365,7 @@ export const mbbsCountries: MBBSCountry[] = [
     name: "Kazakhstan",
     slug: "kazakhstan",
     flag: "🇰🇿",
-    heroImage: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=800",
+    heroImage: "/assets/unsplash-1565008447742-97f6f38c985c.jpg",
     description: "Kazakhstan offers affordable MBBS programs with excellent infrastructure and NMC-recognized medical universities.",
     universities: [
       { 
@@ -463,7 +463,7 @@ export const mbbsCountries: MBBSCountry[] = [
     name: "Kyrgyzstan",
     slug: "kyrgyzstan",
     flag: "🇰🇬",
-    heroImage: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=800",
+    heroImage: "/assets/unsplash-1596484552834-6a58f850e0a1.jpg",
     description: "Kyrgyzstan provides quality medical education at the most affordable rates with globally recognized universities.",
     universities: [
       { 
@@ -546,7 +546,7 @@ export const mbbsCountries: MBBSCountry[] = [
     name: "Nepal",
     slug: "nepal",
     flag: "🇳🇵",
-    heroImage: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800",
+    heroImage: "/assets/unsplash-1544735716-392fe2489ffa.jpg",
     description: "Study MBBS in Nepal with no language barrier, similar culture, and easy travel from India.",
     universities: [
       { 
@@ -629,7 +629,7 @@ export const mbbsCountries: MBBSCountry[] = [
     name: "Bangladesh",
     slug: "bangladesh",
     flag: "🇧🇩",
-    heroImage: "https://images.unsplash.com/photo-1617864076407-37e5c27e8f99?w=800",
+    heroImage: "/assets/unsplash-1523580846011-d3a5bc25702b.jpg",
     description: "Bangladesh offers high-quality MBBS education with English medium instruction and affordable living costs.",
     universities: [
       { 
@@ -725,7 +725,7 @@ export const mbbsCountries: MBBSCountry[] = [
     name: "Egypt",
     slug: "egypt",
     flag: "🇪🇬",
-    heroImage: "https://images.unsplash.com/photo-1539768942893-daf53e448371?w=800",
+    heroImage: "/assets/unsplash-1539768942893-daf53e448371.jpg",
     description: "Egypt offers world-renowned medical education with ancient universities and modern teaching methods.",
     universities: [
       { 
@@ -809,7 +809,7 @@ export const mbbsCountries: MBBSCountry[] = [
     name: "Belarus",
     slug: "belarus",
     flag: "🇧🇾",
-    heroImage: "https://images.unsplash.com/photo-1578074343807-b42d9c31d1ac?w=800",
+    heroImage: "/assets/unsplash-1523580846011-d3a5bc25702b.jpg",
     description: "Belarus provides European standard medical education with globally recognized degrees at affordable costs.",
     universities: [
       { 
