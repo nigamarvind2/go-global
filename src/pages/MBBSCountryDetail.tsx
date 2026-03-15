@@ -76,20 +76,9 @@ const MBBSCountryDetail = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative">
-        <div className="grid lg:grid-cols-2 min-h-[500px]">
-          {/* Image Side */}
-          <div className="relative h-[300px] lg:h-auto">
-            <img
-              src={countryData.heroImage}
-              alt={`MBBS in ${countryData.name}`}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent lg:hidden" />
-          </div>
-
-          {/* Content Side */}
-          <div className="bg-background p-8 lg:p-12 flex flex-col justify-center">
+      <section className="relative bg-aurora py-12">
+        <div className="container mx-auto px-4">
+          <div className="bg-background/90 rounded-3xl border border-border shadow-card p-8 lg:p-12">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium w-fit mb-4">
               <GraduationCap className="w-4 h-4" />
               GoGlobalEdTechPvtLtd
@@ -104,8 +93,8 @@ const MBBSCountryDetail = () => {
               {countryData.description}
             </p>
 
-            <ul className="grid grid-cols-2 gap-3 mb-8">
-              {countryData.benefits.slice(0, 4).map((benefit, index) => (
+            <ul className="grid sm:grid-cols-2 gap-3 mb-8">
+              {countryData.benefits.slice(0, 6).map((benefit, index) => (
                 <li key={index} className="flex items-center gap-2">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
                   <span className="text-foreground text-sm">{benefit}</span>
