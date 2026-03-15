@@ -8,39 +8,34 @@ interface BrandMarkProps {
 
 const sizeStyles = {
   sm: {
-    icon: "h-10 w-10",
-    text: "text-lg",
-    tagline: "text-[10px]",
+    icon: "h-8",
+    text: "text-base",
   },
   md: {
-    icon: "h-12 w-12",
-    text: "text-xl",
-    tagline: "text-xs",
+    icon: "h-10",
+    text: "text-lg",
   },
   lg: {
-    icon: "h-14 w-14",
+    icon: "h-12",
     text: "text-2xl",
-    tagline: "text-sm",
   },
 };
 
-const BrandMark = ({ size = "md", showTagline = true, className }: BrandMarkProps) => {
+const BrandMark = ({ size = "md", className }: BrandMarkProps) => {
   const styles = sizeStyles[size];
 
   return (
-    <div className={cn("flex items-center", className)}>
-      <div className="leading-tight">
-        <div className={cn("font-display font-semibold tracking-tight", styles.text)}>
-          <span className="text-foreground">GoGlobal</span>
-          <span className="text-primary">EdTech</span>
-          <span className="text-muted-foreground">PvtLtd</span>
-        </div>
-        {showTagline && (
-          <div className={cn("text-muted-foreground", styles.tagline)}>
-            Global study guidance from India
-          </div>
-        )}
-      </div>
+    <div className={cn("flex items-center gap-3", className)}>
+      <img
+        src="/assets/brand-icon.svg"
+        alt="GoGlobalEdTechPvtLtd"
+        className={cn("w-auto", styles.icon)}
+      />
+      <span className={cn("font-display font-semibold tracking-tight leading-none", styles.text)}>
+        <span className="text-[#1E3A6D]">GoGlobal</span>
+        <span className="text-[#2F65B3]">EdTech</span>
+        <span className="text-slate-500">PvtLtd</span>
+      </span>
     </div>
   );
 };
