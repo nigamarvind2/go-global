@@ -156,14 +156,12 @@ const ApplicationTracker = () => {
   };
 
   return (
-    <section id="application-tracker" className="py-24 bg-background relative overflow-hidden">
-      <div className="absolute inset-0">
-        <div className="absolute inset-y-0 right-0 w-[40%] bg-gradient-to-l from-primary/10 to-transparent" />
-      </div>
+    <section id="application-tracker" className="py-20 md:py-24 bg-muted/40 relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid opacity-40" />
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6">
-            <Badge className="w-fit bg-accent/15 text-accent" variant="secondary">
+            <Badge className="w-fit bg-background/80 text-accent border border-border/60" variant="secondary">
               <ClipboardList className="w-4 h-4 mr-2" />
               Application Tracker
             </Badge>
@@ -233,7 +231,7 @@ const ApplicationTracker = () => {
                     {group.tasks.map((task) => (
                       <div
                         key={task.id}
-                        className="flex items-start justify-between gap-3 rounded-2xl border border-border/60 bg-background/70 px-4 py-3"
+                        className="flex items-start justify-between gap-3 rounded-2xl border border-border/60 bg-card px-4 py-3"
                       >
                         <label className="flex items-start gap-3 text-sm text-foreground cursor-pointer">
                           <Checkbox

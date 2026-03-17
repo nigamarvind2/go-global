@@ -523,11 +523,11 @@ const CollegePredictor = () => {
   };
 
   return (
-    <section id="college-predictor" className="py-24 bg-background">
+    <section id="college-predictor" className="py-20 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6">
-            <Badge className="w-fit bg-primary/10 text-primary" variant="secondary">
+            <Badge className="w-fit bg-background/80 text-primary border border-border/60" variant="secondary">
               <Sparkles className="w-4 h-4 mr-2" />
               College Predictor
             </Badge>

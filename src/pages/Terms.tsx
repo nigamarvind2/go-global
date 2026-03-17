@@ -5,10 +5,10 @@ const Terms = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <section className="py-24 bg-background">
+      <section className="py-20 md:py-24 bg-background">
         <div className="container mx-auto px-4 max-w-3xl space-y-6">
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground">Terms of Service</h1>
-          <p className="text-muted-foreground">
+          <h1 className="section-title">Terms of Service</h1>
+          <p className="section-subtitle">
             By using this website, you agree to the terms below. These terms help us provide consistent and transparent
             counselling services.
           </p>

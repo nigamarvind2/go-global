@@ -49,11 +49,9 @@ const CountryDetail = () => {
 
           {/* Content Side */}
           <div className="bg-background p-8 lg:p-12 flex flex-col justify-center">
-            <div className="inline-block border border-border px-4 py-2 text-sm font-medium mb-4">
-              GO GLOBAL EDTECH
-            </div>
+            <p className="eyebrow mb-4">GoGlobal EdTech</p>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 flex items-center gap-4">
+            <h1 className="section-title mb-6 flex items-center gap-4">
               <span className="text-4xl">{countryData.flag}</span>
               Study In {countryData.name}
             </h1>
@@ -82,9 +80,9 @@ const CountryDetail = () => {
       </section>
 
       {/* Top Benefits Section */}
-      <section className="py-16 bg-background">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">
+          <h2 className="section-title mb-12">
             Top Benefits of Studying in {countryData.name}
           </h2>
 
@@ -105,9 +103,9 @@ const CountryDetail = () => {
       </section>
 
       {/* Top Universities Section */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-20 bg-muted/40">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="section-title mb-4">
             Top Universities in {countryData.name}
           </h2>
           <p className="text-muted-foreground mb-8">
@@ -145,9 +143,9 @@ const CountryDetail = () => {
       </section>
 
       {/* Top Courses Section */}
-      <section className="py-16 bg-background">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
+          <h2 className="section-title mb-8">
             Top Courses to Study in {countryData.name}
           </h2>
 
@@ -175,9 +173,9 @@ const CountryDetail = () => {
       </section>
 
       {/* Admission Requirements Section */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-20 bg-muted/40">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="section-title mb-4">
             Admission Requirements to Study in {countryData.name}
           </h2>
           <p className="text-muted-foreground mb-8">
@@ -196,9 +194,9 @@ const CountryDetail = () => {
       </section>
 
       {/* Visa Requirements Section */}
-      <section className="py-16 bg-background">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
+          <h2 className="section-title mb-8">
             {countryData.name} Student Visa Requirements
           </h2>
 

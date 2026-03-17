@@ -79,7 +79,7 @@ const countries: CountryCard[] = [
 
 const CountryGrid = () => {
   return (
-    <section className="py-20 bg-secondary/30">
+    <section className="py-20 md:py-24 bg-muted/40">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12">

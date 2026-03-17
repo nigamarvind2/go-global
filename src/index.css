@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=League+Spartan:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,42 +6,42 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222 38% 12%;
+    --background: 210 24% 98%;
+    --foreground: 220 24% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 38% 12%;
+    --card-foreground: 220 24% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 38% 12%;
+    --popover-foreground: 220 24% 12%;
 
-    --primary: 214 72% 32%;
+    --primary: 218 55% 26%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222 30% 18%;
+    --secondary: 210 24% 94%;
+    --secondary-foreground: 220 18% 20%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 14% 40%;
+    --muted: 210 20% 94%;
+    --muted-foreground: 215 12% 45%;
 
-    --accent: 20 90% 55%;
+    --accent: 172 55% 36%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 88%;
-    --input: 214 32% 88%;
-    --ring: 214 72% 32%;
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 218 55% 40%;
 
     --radius: 1rem;
 
     /* Custom tokens */
-    --hero-gradient: linear-gradient(120deg, hsl(214 72% 38%) 0%, hsl(180 70% 36%) 45%, hsl(20 90% 55%) 100%);
-    --card-shadow: 0 20px 50px -35px hsl(222 38% 12% / 0.45);
-    --card-shadow-hover: 0 28px 70px -40px hsl(222 38% 12% / 0.55);
+    --hero-gradient: linear-gradient(120deg, hsl(218 55% 26%) 0%, hsl(198 52% 32%) 45%, hsl(172 55% 36%) 100%);
+    --card-shadow: 0 18px 40px -30px hsl(220 24% 12% / 0.35);
+    --card-shadow-hover: 0 26px 60px -38px hsl(220 24% 12% / 0.4);
     --nav-height: 80px;
-    --surface: 210 36% 96%;
+    --surface: 210 20% 97%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -54,33 +54,33 @@
   }
 
   .dark {
-    --background: 222 38% 8%;
-    --foreground: 210 40% 98%;
+    --background: 222 30% 8%;
+    --foreground: 210 36% 98%;
 
-    --card: 222 38% 10%;
-    --card-foreground: 210 40% 98%;
+    --card: 222 30% 10%;
+    --card-foreground: 210 36% 98%;
 
-    --popover: 222 38% 10%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 222 30% 10%;
+    --popover-foreground: 210 36% 98%;
 
-    --primary: 214 80% 52%;
+    --primary: 210 70% 54%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 217 26% 18%;
+    --secondary-foreground: 210 36% 98%;
 
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 217 26% 18%;
+    --muted-foreground: 215 18% 70%;
 
-    --accent: 20 90% 55%;
+    --accent: 172 55% 46%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 210 36% 98%;
 
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 214 80% 52%;
+    --border: 217 26% 20%;
+    --input: 217 26% 20%;
+    --ring: 210 70% 54%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -100,36 +100,49 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Sora', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Newsreader', serif;
-    @apply font-bold tracking-tight;
+    font-family: 'League Spartan', sans-serif;
+    @apply font-semibold tracking-tight;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+    font-kerning: normal;
+  }
+
+  h1 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  h2 {
+    line-height: 1.1;
   }
 }
 
 @layer components {
   .nav-link {
-    @apply text-foreground/80 hover:text-primary transition-colors duration-200 font-medium;
+    @apply text-foreground/70 hover:text-foreground transition-colors duration-200 font-medium;
   }
 
   .nav-link-active {
-    @apply text-primary font-semibold;
+    @apply text-foreground font-semibold;
   }
 
   .country-card {
-    @apply bg-card rounded-2xl overflow-hidden transition-all duration-300;
-    box-shadow: var(--card-shadow);
+    @apply bg-card rounded-2xl overflow-hidden transition-all duration-300 border border-border/60;
+    box-shadow: 0 8px 24px -18px hsl(var(--foreground) / 0.35);
   }
 
   .country-card:hover {
-    box-shadow: var(--card-shadow-hover);
-    transform: translateY(-4px);
+    box-shadow: var(--card-shadow);
+    transform: translateY(-3px);
   }
 
   .mega-menu {
-    @apply absolute top-full left-0 w-full bg-card shadow-2xl rounded-b-2xl opacity-0 invisible transition-all duration-300;
+    @apply absolute top-full left-0 w-full bg-card shadow-2xl rounded-b-2xl opacity-0 invisible transition-all duration-300 border border-border/60;
   }
 
   .mega-menu-visible {
@@ -137,7 +150,7 @@
   }
 
   .service-card {
-    @apply bg-card p-6 rounded-2xl transition-all duration-300 border border-border/50;
+    @apply bg-card p-6 rounded-2xl transition-all duration-300 border border-border/60;
   }
 
   .service-card:hover {
@@ -151,29 +164,35 @@
   }
 
   .btn-primary {
-    @apply text-primary-foreground font-semibold px-6 py-3 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-primary/25;
-    background-image: var(--hero-gradient);
+    @apply text-primary-foreground font-semibold px-6 py-3 rounded-full transition-all duration-200 bg-primary hover:bg-primary/90 hover:shadow-md;
   }
 
   .btn-outline {
-    @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-6 py-3 rounded-xl transition-all duration-200;
+    @apply border border-foreground/20 text-foreground hover:border-primary hover:text-primary font-semibold px-6 py-3 rounded-full transition-all duration-200 hover:bg-primary/5;
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-foreground;
+    @apply text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground leading-[1.08];
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.05;
   }
 
   .section-subtitle {
-    @apply text-lg text-muted-foreground max-w-2xl;
+    @apply text-base md:text-lg text-muted-foreground max-w-2xl;
   }
 
   .surface-card {
-    @apply bg-card/90 border border-border/60 rounded-3xl shadow-card backdrop-blur;
+    @apply bg-card/95 border border-border/60 rounded-2xl shadow-sm backdrop-blur;
   }
 
   .bg-aurora {
-    background: radial-gradient(circle at top left, hsl(var(--primary) / 0.12), transparent 55%),
-      radial-gradient(circle at bottom right, hsl(var(--accent) / 0.18), transparent 45%),
+    background: radial-gradient(circle at top right, hsl(var(--primary) / 0.14), transparent 55%),
+      radial-gradient(circle at 20% 20%, hsl(var(--accent) / 0.14), transparent 40%),
       linear-gradient(180deg, hsl(var(--background)), hsl(var(--background)));
   }
 }
@@ -223,7 +242,11 @@
   }
 
   .bg-grid {
-    background-image: radial-gradient(hsl(var(--primary) / 0.12) 1px, transparent 1px);
-    background-size: 24px 24px;
+    background-image: radial-gradient(hsl(var(--primary) / 0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .eyebrow {
+    @apply text-xs uppercase tracking-[0.2em] text-muted-foreground font-semibold;
   }
 }

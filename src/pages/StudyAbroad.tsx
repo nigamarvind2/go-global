@@ -118,8 +118,10 @@ const StudyAbroad = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/10 via-background to-accent/5 py-16 lg:py-24">
-        <div className="container mx-auto px-4 text-center">
+      <section className="bg-aurora relative overflow-hidden py-20 lg:py-24">
+        <div className="absolute inset-0 bg-grid opacity-50" />
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <p className="eyebrow mb-4">Study Abroad</p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
             Study <span className="gradient-text">Abroad</span> Destinations
           </h1>
@@ -131,7 +133,7 @@ const StudyAbroad = () => {
       </section>
       
       {/* Countries Grid */}
-      <section className="py-16 bg-background">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {countries.map((country, index) => (

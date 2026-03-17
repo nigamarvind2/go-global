@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Manrope', 'system-ui', 'sans-serif'],
-        display: ['Newsreader', 'serif'],
+        sans: ['Sora', 'system-ui', 'sans-serif'],
+        display: ['League Spartan', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

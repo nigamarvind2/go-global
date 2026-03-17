@@ -105,12 +105,12 @@ const AIAssistant = () => {
   };
 
   return (
-    <section id="ai-assistant" className="py-24 bg-aurora relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid opacity-60" />
+    <section id="ai-assistant" className="py-20 md:py-24 bg-aurora relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid opacity-50" />
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <Badge className="w-fit bg-primary/10 text-primary hover:bg-primary/15" variant="secondary">
+            <Badge className="w-fit bg-background/80 text-primary border border-border/60" variant="secondary">
               <Sparkles className="w-4 h-4 mr-2" />
               New: GoGlobal AI Advisor
             </Badge>
@@ -161,7 +161,7 @@ const AIAssistant = () => {
               </Badge>
             </div>
 
-            <div className="h-[320px] overflow-y-auto rounded-2xl border border-border/60 bg-background/70 p-4 space-y-4">
+            <div className="h-[320px] overflow-y-auto rounded-2xl border border-border/60 bg-background/80 p-4 space-y-4">
               {messages.map((message, index) => (
                 <div
                   key={`${message.role}-${index}`}
@@ -170,7 +170,7 @@ const AIAssistant = () => {
                   <div
                     className={`max-w-[80%] rounded-2xl px-4 py-3 text-sm leading-relaxed whitespace-pre-line shadow-sm ${
                       message.role === "assistant"
-                        ? "bg-muted text-foreground"
+                        ? "bg-muted/70 text-foreground"
                         : "bg-primary text-primary-foreground"
                     }`}
                   >
@@ -180,7 +180,7 @@ const AIAssistant = () => {
               ))}
               {isThinking && (
                 <div className="flex justify-start">
-                  <div className="bg-muted text-foreground rounded-2xl px-4 py-3 text-sm">
+                  <div className="bg-muted/70 text-foreground rounded-2xl px-4 py-3 text-sm">
                     Typing...
                   </div>
                 </div>

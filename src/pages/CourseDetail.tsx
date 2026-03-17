@@ -39,25 +39,22 @@ const CourseDetail = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-20">
-        <div className="container mx-auto px-4">
+      <section className="bg-aurora relative overflow-hidden py-20">
+        <div className="absolute inset-0 bg-grid opacity-50" />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl">
             <div className="flex items-center gap-2 mb-4">
               <BookOpen className="w-6 h-6" />
-              <span className="text-white/80">Popular Course</span>
+              <span className="text-muted-foreground">Popular Course</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">{course.title}</h1>
-            <p className="text-xl text-white/90 mb-6">{course.heroDescription}</p>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">{course.title}</h1>
+            <p className="text-lg text-muted-foreground mb-6">{course.heroDescription}</p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/contact">
-                <Button size="lg" variant="secondary" className="gap-2">
-                  Get Free Counselling <ArrowRight className="w-4 h-4" />
-                </Button>
+              <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
+                Get Free Counselling <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link to="/study-abroad">
-                <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
-                  Explore Universities
-                </Button>
+              <Link to="/study-abroad" className="btn-outline inline-flex items-center gap-2">
+                Explore Universities
               </Link>
             </div>
           </div>
@@ -85,7 +82,7 @@ const CourseDetail = () => {
       </section>
 
       {/* Career Options Section */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-muted/40">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-3 mb-8">
             <Briefcase className="w-8 h-8 text-accent" />
@@ -124,7 +121,7 @@ const CourseDetail = () => {
       </section>
 
       {/* Eligibility & Why Study */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-muted/40">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Eligibility */}
@@ -163,18 +160,16 @@ const CourseDetail = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary text-white">
+      <section className="py-16 bg-muted/40">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
             Ready to Start Your {course.title} Journey?
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Get personalized guidance from our expert counselors and find the perfect university for your goals.
           </p>
-          <Link to="/contact">
-            <Button size="lg" variant="secondary" className="gap-2">
-              Get Free Counselling <ArrowRight className="w-4 h-4" />
-            </Button>
+          <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
+            Get Free Counselling <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

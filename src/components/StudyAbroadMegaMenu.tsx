@@ -377,7 +377,7 @@ const StudyAbroadMegaMenu = ({ isOpen }: StudyAbroadMegaMenuProps) => {
       </div>
 
       {/* Footer */}
-      <div className="px-6 py-4 bg-muted/30 border-t border-border flex justify-between items-center">
+      <div className="px-6 py-4 bg-muted/40 border-t border-border flex justify-between items-center">
         <p className="text-sm text-muted-foreground">
           Need guidance? Our experts are here to help!
         </p>

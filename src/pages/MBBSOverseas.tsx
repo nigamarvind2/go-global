@@ -42,11 +42,12 @@ const MBBSOverseas = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary/10 via-background to-accent/10 py-20 lg:py-28">
-        <div className="container mx-auto px-4">
+      <section className="relative bg-aurora overflow-hidden py-20 lg:py-28">
+        <div className="absolute inset-0 bg-grid opacity-50" />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
+              <div className="inline-flex items-center gap-2 bg-background/80 text-foreground/80 px-4 py-2 rounded-full text-xs font-semibold border border-border/60">
                 <GraduationCap className="w-4 h-4" />
                 GoGlobalEdTechPvtLtd - Your MBBS Partner
               </div>
@@ -54,17 +55,17 @@ const MBBSOverseas = () => {
                 Are You Looking to <br />
                 <span className="text-primary">Study MBBS Abroad?</span>
               </h1>
-              <p className="text-lg text-muted-foreground max-w-xl">
+              <p className="text-base md:text-lg text-muted-foreground max-w-xl">
                 Fulfill your dream of becoming a doctor with affordable, world-class medical education. 
                 Get admission in NMC & WHO approved universities with complete guidance from GoGlobalEdTechPvtLtd.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button size="lg" onClick={() => setIsEnquiryOpen(true)}>
+                <Button size="lg" onClick={() => setIsEnquiryOpen(true)} className="rounded-full px-6">
                   Get Free Consultation
                   <Phone className="w-4 h-4 ml-2" />
                 </Button>
                 <a href="tel:+919166664558">
-                  <Button size="lg" variant="outline">
+                  <Button size="lg" variant="outline" className="rounded-full px-6">
                     Call Now: +91 91666 64558
                   </Button>
                 </a>
@@ -88,9 +89,9 @@ const MBBSOverseas = () => {
               <img 
                 src="/assets/unsplash-1523580846011-d3a5bc25702b.jpg"
                 alt="Medical students"
-                className="rounded-2xl shadow-2xl w-full"
+                className="rounded-2xl shadow-xl w-full"
               />
-              <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-6 rounded-xl shadow-lg">
+              <div className="absolute -bottom-6 -left-6 bg-foreground text-background p-6 rounded-xl shadow-lg">
                 <div className="text-3xl font-bold">1000+</div>
                 <div className="text-sm">Students Placed</div>
               </div>
@@ -100,35 +101,33 @@ const MBBSOverseas = () => {
       </section>
 
       {/* Comparison Table */}
-      <section className="py-16 bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
-        </div>
+      <section className="py-20 bg-muted/40 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid opacity-40" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
-            <span className="inline-block bg-white/20 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 backdrop-blur-sm">
+            <span className="inline-block bg-background/80 text-muted-foreground px-4 py-2 rounded-full text-xs font-semibold mb-4 border border-border/60">
               📊 Fee Comparison
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">MBBS in India vs Abroad</h2>
-            <p className="text-white/80 max-w-2xl mx-auto text-lg">
+            <h2 className="section-title mb-4">MBBS in India vs Abroad</h2>
+            <p className="section-subtitle mx-auto">
               See why thousands of students choose to study MBBS abroad
             </p>
           </div>
           <div className="max-w-4xl mx-auto">
-            <Card className="shadow-2xl border-0 overflow-hidden">
+            <Card className="shadow-lg border border-border/60 overflow-hidden">
               <CardContent className="p-0">
                 <Table>
                   <TableHeader>
-                    <TableRow className="bg-gradient-to-r from-accent to-accent/90">
-                      <TableHead className="text-white font-bold text-base py-4">#</TableHead>
-                      <TableHead className="text-white font-bold text-base py-4">Parameter</TableHead>
-                      <TableHead className="text-white font-bold text-base py-4 text-center">🇮🇳 India</TableHead>
-                      <TableHead className="text-white font-bold text-base py-4 text-center">🌍 Abroad</TableHead>
+                    <TableRow className="bg-muted/60">
+                      <TableHead className="text-foreground font-bold text-base py-4">#</TableHead>
+                      <TableHead className="text-foreground font-bold text-base py-4">Parameter</TableHead>
+                      <TableHead className="text-foreground font-bold text-base py-4 text-center">🇮🇳 India</TableHead>
+                      <TableHead className="text-foreground font-bold text-base py-4 text-center">🌍 Abroad</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {comparisonData.map((row, index) => (
-                      <TableRow key={index} className={index % 2 === 0 ? "bg-muted/50" : "bg-background"}>
+                      <TableRow key={index} className={index % 2 === 0 ? "bg-card" : "bg-background"}>
                         <TableCell className="font-bold text-primary py-4">{index + 1}</TableCell>
                         <TableCell className="font-semibold text-foreground py-4">{row.parameter}</TableCell>
                         <TableCell className="text-center text-muted-foreground py-4">{row.india}</TableCell>
@@ -147,7 +146,7 @@ const MBBSOverseas = () => {
               <Button 
                 size="lg" 
                 onClick={() => setIsEnquiryOpen(true)}
-                className="bg-accent hover:bg-accent/90 text-white shadow-lg hover:shadow-xl transition-all px-8 py-6 text-lg"
+                className="rounded-full px-8 py-6 text-lg"
               >
                 Get Free Counselling Now
                 <ArrowRight className="w-5 h-5 ml-2" />
@@ -158,14 +157,14 @@ const MBBSOverseas = () => {
       </section>
 
       {/* Countries Section */}
-      <section className="py-16 bg-gradient-to-b from-background to-muted/30">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            <span className="inline-block bg-background/80 text-muted-foreground px-4 py-2 rounded-full text-xs font-semibold mb-4 border border-border/60">
               🌍 Explore Countries
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Choose Your Destination</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            <h2 className="section-title mb-4">Choose Your Destination</h2>
+            <p className="section-subtitle mx-auto">
               Explore top countries for MBBS abroad with NMC & WHO approved universities
             </p>
           </div>
@@ -174,7 +173,7 @@ const MBBSOverseas = () => {
               <Link 
                 key={country.slug}
                 to={`/mbbs-overseas/${country.slug}`}
-                className="group bg-background rounded-xl p-6 text-center shadow-md hover:shadow-2xl transition-all duration-300 border-2 border-border hover:border-primary hover:-translate-y-2"
+                className="group bg-card rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-300 border border-border/60 hover:border-primary/30 hover:-translate-y-1"
               >
                 <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">{country.flag}</div>
                 <h3 className="font-bold text-foreground group-hover:text-primary transition-colors">
@@ -191,7 +190,7 @@ const MBBSOverseas = () => {
               size="lg" 
               variant="outline"
               onClick={() => setIsEnquiryOpen(true)}
-              className="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-6 text-lg font-semibold"
+              className="rounded-full px-8 py-6 text-lg font-semibold"
             >
               Can't Decide? Get Expert Advice
               <Phone className="w-5 h-5 ml-2" />
@@ -201,11 +200,11 @@ const MBBSOverseas = () => {
       </section>
 
       {/* Why Study Abroad */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-20 bg-muted/40">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Study MBBS Abroad?</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="section-title mb-4">Why Study MBBS Abroad?</h2>
+            <p className="section-subtitle mx-auto">
               Discover the advantages of pursuing your medical degree internationally
             </p>
           </div>
@@ -229,22 +228,22 @@ const MBBSOverseas = () => {
 
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary text-primary-foreground">
+      <section className="py-16 bg-muted/40">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Start Your MBBS Journey?</h2>
-          <p className="text-primary-foreground/80 max-w-2xl mx-auto mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Ready to Start Your MBBS Journey?</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
             Get expert guidance from GoGlobalEdTechPvtLtd. We help you choose the right university, 
             handle documentation, and support you throughout your medical education journey.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" variant="secondary" className="text-slate-900" onClick={() => setIsEnquiryOpen(true)}>
+            <Button size="lg" className="rounded-full px-6" onClick={() => setIsEnquiryOpen(true)}>
               Get Free Consultation
             </Button>
             <a href="tel:+919166664558">
               <Button
                 size="lg"
                 variant="outline"
-                className="border-primary-foreground bg-background text-slate-900 hover:bg-white hover:text-slate-900"
+                className="rounded-full px-6"
               >
                 <Phone className="w-4 h-4 mr-2" />
                 Call: +91 91666 64558

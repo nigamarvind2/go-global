@@ -63,7 +63,7 @@ const MBBSCountryDetail = () => {
       <Navbar />
 
       {/* Breadcrumb */}
-      <div className="bg-muted/30 py-4">
+      <div className="bg-muted/40 py-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-2 text-sm">
             <Link to="/" className="text-muted-foreground hover:text-primary">Home</Link>
@@ -79,17 +79,17 @@ const MBBSCountryDetail = () => {
       <section className="relative bg-aurora py-12">
         <div className="container mx-auto px-4">
           <div className="bg-background/90 rounded-3xl border border-border shadow-card p-8 lg:p-12">
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium w-fit mb-4">
+            <div className="inline-flex items-center gap-2 bg-background/80 text-muted-foreground px-4 py-2 rounded-full text-xs font-semibold border border-border/60 w-fit mb-4">
               <GraduationCap className="w-4 h-4" />
               GoGlobalEdTechPvtLtd
             </div>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 flex items-center gap-4">
+            <h1 className="section-title mb-4 flex items-center gap-4">
               <span className="text-5xl">{countryData.flag}</span>
               MBBS in {countryData.name}
             </h1>
 
-            <p className="text-muted-foreground leading-relaxed mb-6 text-lg">
+            <p className="text-muted-foreground leading-relaxed mb-6 text-base md:text-lg">
               {countryData.description}
             </p>
 
@@ -103,12 +103,12 @@ const MBBSCountryDetail = () => {
             </ul>
 
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" onClick={() => setIsEnquiryOpen(true)}>
+              <Button size="lg" onClick={() => setIsEnquiryOpen(true)} className="rounded-full px-6">
                 Get Free Consultation
                 <Phone className="w-4 h-4 ml-2" />
               </Button>
               <a href="tel:+919166664558">
-                <Button size="lg" variant="outline">
+                <Button size="lg" variant="outline" className="rounded-full px-6">
                   Call: +91 91666 64558
                 </Button>
               </a>
@@ -118,7 +118,7 @@ const MBBSCountryDetail = () => {
       </section>
 
       {/* Country Overview */}
-      <section className="py-16">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-8">
             <Card>
@@ -239,7 +239,7 @@ const MBBSCountryDetail = () => {
       </section>
 
       {/* Universities Section */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-20 bg-muted/40">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -264,7 +264,7 @@ const MBBSCountryDetail = () => {
                   </TableHeader>
                   <TableBody>
                     {countryData.universities.map((uni, index) => (
-                      <TableRow key={index} className={index % 2 === 0 ? "bg-muted/30" : ""}>
+                      <TableRow key={index} className={index % 2 === 0 ? "bg-muted/40" : ""}>
                         <TableCell className="font-medium">
                           <Link 
                             to={`/mbbs-overseas/${country}/${uni.slug}`}
@@ -310,7 +310,7 @@ const MBBSCountryDetail = () => {
       </section>
 
       {/* Eligibility & Documents */}
-      <section className="py-16">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8">
             {/* Eligibility */}
@@ -357,7 +357,7 @@ const MBBSCountryDetail = () => {
       </section>
 
       {/* Other Countries */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-20 bg-muted/40">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Explore Other Countries</h2>
@@ -380,24 +380,24 @@ const MBBSCountryDetail = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-primary text-primary-foreground">
+      <section className="py-16 bg-muted/40">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Study MBBS in {countryData.name}?
           </h2>
-          <p className="text-primary-foreground/80 max-w-2xl mx-auto mb-8">
+          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
             Get expert guidance from GoGlobalEdTechPvtLtd. We handle everything from university selection 
             to visa processing and accommodation.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" variant="secondary" onClick={() => setIsEnquiryOpen(true)}>
+            <Button size="lg" className="rounded-full px-6" onClick={() => setIsEnquiryOpen(true)}>
               Apply Now - Free Consultation
             </Button>
             <a href="tel:+919166664558">
               <Button
                 size="lg"
                 variant="outline"
-                className="border-primary-foreground/60 bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                className="rounded-full px-6"
               >
                 <Phone className="w-4 h-4 mr-2" />
                 Call: +91 91666 64558

@@ -7,13 +7,13 @@ const About = () => {
     <div className="min-h-screen">
       <Navbar />
 
-      <section className="py-24 bg-aurora relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-60" />
+      <section className="py-20 md:py-24 bg-aurora relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid opacity-50" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
-            <p className="text-primary font-semibold uppercase tracking-wider text-sm">About Us</p>
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mt-3">GoGlobalEdTechPvtLtd</h1>
-            <p className="text-lg text-muted-foreground mt-4">
+            <p className="eyebrow">About Us</p>
+            <h1 className="section-title mt-3">GoGlobalEdTechPvtLtd</h1>
+            <p className="section-subtitle mt-4">
               We are an India-based education consultancy focused on helping students plan, apply, and succeed abroad. Our
               team combines counsellor expertise with smart tools to make the journey clear and stress-free.
             </p>
@@ -21,7 +21,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-background">
+      <section className="py-20 md:py-24 bg-background">
         <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12">
           <div className="surface-card p-8 space-y-4">
             <h2 className="text-2xl font-bold text-foreground">Our mission</h2>

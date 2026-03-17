@@ -43,19 +43,18 @@ const ServiceDetail = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-20">
-        <div className="container mx-auto px-4">
+      <section className="bg-aurora relative overflow-hidden py-20">
+        <div className="absolute inset-0 bg-grid opacity-50" />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl">
             <div className="flex items-center gap-2 mb-4">
               <Sparkles className="w-6 h-6" />
-              <span className="text-white/80">Our Services</span>
+              <span className="text-muted-foreground">Our Services</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">{service.title}</h1>
-            <p className="text-xl text-white/90 mb-6">{service.heroDescription}</p>
-            <Link to="/contact">
-              <Button size="lg" variant="secondary" className="gap-2">
-                Get Started <ArrowRight className="w-4 h-4" />
-              </Button>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">{service.title}</h1>
+            <p className="text-lg text-muted-foreground mb-6">{service.heroDescription}</p>
+            <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
+              Get Started <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -82,7 +81,7 @@ const ServiceDetail = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-muted/40">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">How It Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -134,7 +133,7 @@ const ServiceDetail = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-muted/40">
         <div className="container mx-auto px-4 max-w-3xl">
           <div className="flex items-center gap-3 mb-8 justify-center">
             <HelpCircle className="w-8 h-8 text-primary" />
@@ -156,18 +155,16 @@ const ServiceDetail = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary text-white">
+      <section className="py-16 bg-muted/40">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
             Let's Start Your Journey Together
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Get in touch with our experts today and take the first step towards your dream education abroad.
           </p>
-          <Link to="/contact">
-            <Button size="lg" variant="secondary" className="gap-2">
-              Schedule Free Consultation <ArrowRight className="w-4 h-4" />
-            </Button>
+          <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
+            Schedule Free Consultation <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

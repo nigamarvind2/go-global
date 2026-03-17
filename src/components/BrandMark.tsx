@@ -32,9 +32,9 @@ const BrandMark = ({ size = "md", className }: BrandMarkProps) => {
         className={cn("w-auto", styles.icon)}
       />
       <span className={cn("font-display font-semibold tracking-tight leading-none", styles.text)}>
-        <span className="text-[#1E3A6D]">GoGlobal</span>
-        <span className="text-[#2F65B3]">EdTech</span>
-        <span className="text-slate-500">PvtLtd</span>
+        <span className="text-foreground">GoGlobal</span>
+        <span className="text-primary">EdTech</span>
+        <span className="text-muted-foreground">PvtLtd</span>
       </span>
     </div>
   );

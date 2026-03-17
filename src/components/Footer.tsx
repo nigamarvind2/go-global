@@ -17,16 +17,16 @@ const Footer = () => {
               end-to-end support.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors">
+              <a href="#" className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-accent transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors">
+              <a href="#" className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-accent transition-colors">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors">
+              <a href="#" className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-accent transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors">
+              <a href="#" className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-accent transition-colors">
                 <Linkedin className="w-5 h-5" />
               </a>
             </div>
@@ -36,13 +36,11 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-lg mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li><Link to="/about" className="text-background/70 hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link to="/services" className="text-background/70 hover:text-primary transition-colors">Our Services</Link></li>
-              <li><Link to="/study-abroad" className="text-background/70 hover:text-primary transition-colors">Study Abroad</Link></li>
-              <li><Link to="/contact" className="text-background/70 hover:text-primary transition-colors">Contact Us</Link></li>
-              <li><a href="/#ai-assistant" className="text-background/70 hover:text-primary transition-colors">AI Assistant</a></li>
-              <li><a href="/#college-predictor" className="text-background/70 hover:text-primary transition-colors">College Predictor</a></li>
-              <li><a href="/#application-tracker" className="text-background/70 hover:text-primary transition-colors">Application Tracker</a></li>
+              <li><Link to="/about" className="text-background/70 hover:text-accent transition-colors">About Us</Link></li>
+              <li><Link to="/services" className="text-background/70 hover:text-accent transition-colors">Our Services</Link></li>
+              <li><Link to="/study-abroad" className="text-background/70 hover:text-accent transition-colors">Study Abroad</Link></li>
+              <li><Link to="/contact" className="text-background/70 hover:text-accent transition-colors">Contact Us</Link></li>
+              <li><a href="/#services" className="text-background/70 hover:text-accent transition-colors">Services Overview</a></li>
             </ul>
           </div>
           
@@ -50,11 +48,11 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-lg mb-4">Study Destinations</h4>
             <ul className="space-y-2">
-              <li><Link to="/study-abroad/uk" className="text-background/70 hover:text-primary transition-colors">United Kingdom</Link></li>
-              <li><Link to="/study-abroad/usa" className="text-background/70 hover:text-primary transition-colors">United States</Link></li>
-              <li><Link to="/study-abroad/canada" className="text-background/70 hover:text-primary transition-colors">Canada</Link></li>
-              <li><Link to="/study-abroad/australia" className="text-background/70 hover:text-primary transition-colors">Australia</Link></li>
-              <li><Link to="/study-abroad/germany" className="text-background/70 hover:text-primary transition-colors">Germany</Link></li>
+              <li><Link to="/study-abroad/uk" className="text-background/70 hover:text-accent transition-colors">United Kingdom</Link></li>
+              <li><Link to="/study-abroad/usa" className="text-background/70 hover:text-accent transition-colors">United States</Link></li>
+              <li><Link to="/study-abroad/canada" className="text-background/70 hover:text-accent transition-colors">Canada</Link></li>
+              <li><Link to="/study-abroad/australia" className="text-background/70 hover:text-accent transition-colors">Australia</Link></li>
+              <li><Link to="/study-abroad/germany" className="text-background/70 hover:text-accent transition-colors">Germany</Link></li>
             </ul>
           </div>
           
@@ -63,16 +61,16 @@ const Footer = () => {
             <h4 className="font-bold text-lg mb-4">Contact Us</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <span className="text-background/70 text-sm">162 B Brijeshwari NXB, Indore, Madhya Pradesh</span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="tel:+919166664558" className="text-background/70 hover:text-primary transition-colors">+91 91666 64558</a>
+                <Phone className="w-5 h-5 text-accent flex-shrink-0" />
+                <a href="tel:+919166664558" className="text-background/70 hover:text-accent transition-colors">+91 91666 64558</a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="mailto:goglobalstudyedtech@gmail.com" className="text-background/70 hover:text-primary transition-colors">goglobalstudyedtech@gmail.com</a>
+                <Mail className="w-5 h-5 text-accent flex-shrink-0" />
+                <a href="mailto:goglobalstudyedtech@gmail.com" className="text-background/70 hover:text-accent transition-colors">goglobalstudyedtech@gmail.com</a>
               </li>
             </ul>
           </div>
@@ -84,8 +82,8 @@ const Footer = () => {
             © {new Date().getFullYear()} GoGlobalEdTechPvtLtd. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
-            <Link to="/privacy" className="text-background/60 hover:text-primary transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="text-background/60 hover:text-primary transition-colors">Terms of Service</Link>
+            <Link to="/privacy" className="text-background/60 hover:text-accent transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="text-background/60 hover:text-accent transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
