@@ -12,6 +12,7 @@ import {
   Code,
   Building2,
   Palette,
+  ChevronDown,
   ChevronRight,
   Scale,
   Utensils,
@@ -263,15 +264,168 @@ const tabs = [
 
 interface StudyAbroadMegaMenuProps {
   isOpen: boolean;
+  variant?: "desktop" | "mobile";
 }
 
-const StudyAbroadMegaMenu = ({ isOpen }: StudyAbroadMegaMenuProps) => {
-  const [activeTab, setActiveTab] = useState("services");
+const StudyAbroadMegaMenu = ({ isOpen, variant = "desktop" }: StudyAbroadMegaMenuProps) => {
+  const isMobile = variant === "mobile";
+  const [activeTab, setActiveTab] = useState(isMobile ? "destinations" : "services");
+  const [openSection, setOpenSection] = useState<"services" | "courses" | "destinations" | null>(
+    isMobile ? "destinations" : null,
+  );
+  const itemPadding = isMobile ? "p-3" : "p-4";
+  const iconSize = isMobile ? "w-9 h-9" : "w-10 h-10";
+  const titleSize = isMobile ? "text-sm" : "";
+  const descSize = isMobile ? "text-[11px]" : "text-xs";
+
+  if (isMobile && !isOpen) {
+    return null;
+  }
+
+  if (isMobile) {
+    return (
+      <div className="w-full bg-card border border-border rounded-2xl shadow-lg overflow-hidden">
+        <div className="max-h-[70vh] overflow-y-auto">
+          {/* Admission Services */}
+          <div className="border-b border-border/60">
+            <button
+              type="button"
+              onClick={() => setOpenSection(openSection === "services" ? null : "services")}
+              className="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-foreground"
+            >
+              Admission Services
+              <ChevronDown className={`w-4 h-4 transition-transform ${openSection === "services" ? "rotate-180" : ""}`} />
+            </button>
+            {openSection === "services" && (
+              <div className="px-4 pb-4">
+                <div className="grid grid-cols-1 gap-3">
+                  {admissionServices.map((service, index) => (
+                    <Link
+                      key={index}
+                      to={`/services/${service.slug}`}
+                      className={`flex items-start gap-3 ${itemPadding} rounded-xl hover:bg-primary/5 transition-colors group`}
+                    >
+                      <div className={`${iconSize} rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-white transition-colors`}>
+                        <service.icon className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <h4 className={`font-semibold text-foreground group-hover:text-primary transition-colors ${titleSize}`}>
+                          {service.title}
+                        </h4>
+                        <p className={`${descSize} text-muted-foreground mt-0.5`}>{service.description}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Popular Courses */}
+          <div className="border-b border-border/60">
+            <button
+              type="button"
+              onClick={() => setOpenSection(openSection === "courses" ? null : "courses")}
+              className="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-foreground"
+            >
+              Popular Courses
+              <ChevronDown className={`w-4 h-4 transition-transform ${openSection === "courses" ? "rotate-180" : ""}`} />
+            </button>
+            {openSection === "courses" && (
+              <div className="px-4 pb-4">
+                <div className="grid grid-cols-1 gap-3">
+                  {popularCourses.map((course, index) => (
+                    <Link
+                      key={index}
+                      to={`/courses/${course.slug}`}
+                      className={`flex items-start gap-3 ${itemPadding} rounded-xl hover:bg-accent/5 transition-colors group`}
+                    >
+                      <div className={`${iconSize} rounded-lg bg-accent/10 text-accent flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-white transition-colors`}>
+                        <course.icon className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <h4 className={`font-semibold text-foreground group-hover:text-accent transition-colors ${titleSize}`}>
+                          {course.title}
+                        </h4>
+                        <p className={`${descSize} text-muted-foreground mt-0.5`}>{course.description}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Study Destinations */}
+          <div>
+            <button
+              type="button"
+              onClick={() => setOpenSection(openSection === "destinations" ? null : "destinations")}
+              className="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-foreground"
+            >
+              Study Destinations
+              <ChevronDown className={`w-4 h-4 transition-transform ${openSection === "destinations" ? "rotate-180" : ""}`} />
+            </button>
+            {openSection === "destinations" && (
+              <div className="px-4 pb-4">
+                <div className="grid grid-cols-1 gap-3">
+                  {studyDestinations.map((country) => (
+                    <Link
+                      key={country.slug}
+                      to={`/study-abroad/${country.slug}`}
+                      className={`flex items-start gap-3 ${itemPadding} rounded-xl hover:bg-primary/5 transition-colors group border border-transparent hover:border-primary/20`}
+                    >
+                      <span className="text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
+                        {country.code}
+                      </span>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between">
+                          <h4 className={`font-semibold text-foreground group-hover:text-primary transition-colors text-sm ${titleSize}`}>
+                            {country.name}
+                          </h4>
+                          <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                        </div>
+                        <p className={`${descSize} text-muted-foreground mt-1 line-clamp-2`}>{country.description}</p>
+                        <div className="flex flex-wrap gap-1 mt-2">
+                          {country.tags.map((tag, idx) => (
+                            <span 
+                              key={idx}
+                              className="text-[10px] px-2 py-0.5 bg-primary/10 text-primary rounded-full"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="px-5 py-4 bg-muted/40 border-t border-border flex flex-col gap-2 items-start">
+          <p className="text-sm text-muted-foreground">
+            Need guidance? Our experts are here to help!
+          </p>
+          <Link 
+            to="/contact" 
+            className="text-primary font-semibold hover:underline text-sm flex items-center gap-1"
+          >
+            Get Free Counselling
+            <ChevronRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div 
       className={`absolute top-full left-1/2 -translate-x-1/2 w-[850px] bg-card border border-border rounded-2xl shadow-2xl transition-all duration-300 overflow-hidden ${
-        isOpen ? 'opacity-100 visible translate-y-2' : 'opacity-0 invisible translate-y-4'
+        isOpen ? "opacity-100 visible translate-y-2" : "opacity-0 invisible translate-y-4"
       }`}
     >
       {/* Tabs */}
