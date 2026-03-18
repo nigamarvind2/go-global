@@ -59,20 +59,20 @@ const Footer = () => {
           {/* Contact Info */}
           <div>
             <h4 className="font-bold text-lg mb-4">Contact Us</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
+            <address className="not-italic space-y-4">
+              <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <span className="text-background/70 text-sm">162 B Brijeshwari NXB, Indore, Madhya Pradesh</span>
-              </li>
-              <li className="flex items-center gap-3">
+              </div>
+              <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-accent flex-shrink-0" />
                 <a href="tel:+919166664558" className="text-background/70 hover:text-accent transition-colors">+91 91666 64558</a>
-              </li>
-              <li className="flex items-center gap-3">
+              </div>
+              <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-accent flex-shrink-0" />
                 <a href="mailto:goglobalstudyedtech@gmail.com" className="text-background/70 hover:text-accent transition-colors">goglobalstudyedtech@gmail.com</a>
-              </li>
-            </ul>
+              </div>
+            </address>
           </div>
         </div>
         

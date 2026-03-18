@@ -10,6 +10,8 @@ import { getSiteOrigin, toAbsoluteUrl } from "@/lib/seo";
 const Contact = () => {
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
   const origin = getSiteOrigin();
+  const mapsUrl =
+    "https://www.google.com/maps?q=162%20B%20Brijeshwari%20NXB%2C%20Indore%2C%20Madhya%20Pradesh";
   const contactJsonLd = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
@@ -33,12 +35,19 @@ const Contact = () => {
   const localBusinessJsonLd = {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "EducationalOrganization"],
+    "@id": `${origin}/#localbusiness`,
     name: "GoGlobalEdTechPvtLtd",
     url: origin,
     image: toAbsoluteUrl("/assets/brand-logo-full.svg"),
     telephone: "+91 91666 64558",
     email: "goglobalstudyedtech@gmail.com",
-    areaServed: "IN",
+    description:
+      "India-based study abroad consultancy offering counselling, university shortlisting, admissions support, MBBS overseas guidance, and visa assistance.",
+    areaServed: [
+      { "@type": "City", name: "Indore" },
+      { "@type": "AdministrativeArea", name: "Madhya Pradesh" },
+      { "@type": "Country", name: "India" },
+    ],
     address: {
       "@type": "PostalAddress",
       streetAddress: "162 B Brijeshwari NXB",
@@ -46,7 +55,31 @@ const Contact = () => {
       addressRegion: "Madhya Pradesh",
       addressCountry: "IN",
     },
-    openingHours: "Mo-Sa 10:00-19:00",
+    hasMap: mapsUrl,
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        opens: "10:00",
+        closes: "19:00",
+      },
+    ],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        telephone: "+91 91666 64558",
+        email: "goglobalstudyedtech@gmail.com",
+        availableLanguage: ["English", "Hindi"],
+      },
+    ],
+    knowsAbout: [
+      "Study abroad counselling",
+      "University shortlisting",
+      "MBBS overseas admissions",
+      "Visa processing",
+      "Scholarships and education loans",
+    ],
   };
 
   return (
@@ -117,8 +150,10 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Visit</p>
-                    <p className="text-lg font-semibold text-foreground">162 B Brijeshwari NXB, Indore</p>
-                    <p className="text-sm text-muted-foreground">Madhya Pradesh, India</p>
+                    <address className="not-italic">
+                      <p className="text-lg font-semibold text-foreground">162 B Brijeshwari NXB, Indore</p>
+                      <p className="text-sm text-muted-foreground">Madhya Pradesh, India</p>
+                    </address>
                   </div>
                 </div>
               </div>
@@ -162,7 +197,7 @@ const Contact = () => {
                 162 B Brijeshwari NXB, Indore, Madhya Pradesh, India
               </p>
               <a
-                href="https://www.google.com/maps?q=162%20B%20Brijeshwari%20NXB%2C%20Indore%2C%20Madhya%20Pradesh"
+                href={mapsUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="btn-outline mt-6 inline-flex items-center"
@@ -173,7 +208,7 @@ const Contact = () => {
             <div className="relative overflow-hidden rounded-2xl border border-border shadow-sm">
               <iframe
                 title="GoGlobalEdTechPvtLtd location map"
-                src="https://www.google.com/maps?q=162%20B%20Brijeshwari%20NXB%2C%20Indore%2C%20Madhya%20Pradesh&output=embed"
+                src={`${mapsUrl}&output=embed`}
                 className="w-full h-[360px] md:h-[420px]"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
