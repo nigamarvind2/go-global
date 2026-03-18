@@ -4,6 +4,9 @@ import Footer from "@/components/Footer";
 import { servicesData } from "@/data/servicesData";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import SEO from "@/components/SEO";
+import JsonLd from "@/components/JsonLd";
+import { getSiteOrigin } from "@/lib/seo";
 import {
   Accordion,
   AccordionContent,
@@ -21,10 +24,72 @@ import {
 const ServiceDetail = () => {
   const { serviceSlug } = useParams<{ serviceSlug: string }>();
   const service = serviceSlug ? servicesData[serviceSlug] : null;
+  const origin = getSiteOrigin();
+  const seoTitle = service ? `${service.title}` : "Service Not Found";
+  const seoDescription = service
+    ? `Explore our ${service.title.toLowerCase()} service for study abroad: process, benefits, and FAQs.`
+    : "The requested service page was not found.";
+  const faqJsonLd = service
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: service.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      }
+    : null;
+  const serviceJsonLd = service
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: service.title,
+        description: service.heroDescription,
+        serviceType: service.title,
+        areaServed: "IN",
+        provider: {
+          "@type": "Organization",
+          name: "GoGlobalEdTechPvtLtd",
+          url: origin,
+        },
+        url: `${origin}/services/${service.slug}`,
+      }
+    : null;
+  const breadcrumbJsonLd = service
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: `${origin}/`,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Services",
+            item: `${origin}/services`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: service.title,
+            item: `${origin}/services/${service.slug}`,
+          },
+        ],
+      }
+    : null;
 
   if (!service) {
     return (
       <div className="min-h-screen bg-background">
+        <SEO title={seoTitle} description={seoDescription} noIndex />
         <Navbar />
         <div className="container mx-auto px-4 py-20 text-center">
           <h1 className="text-4xl font-bold mb-4">Service Not Found</h1>
@@ -40,6 +105,12 @@ const ServiceDetail = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title={seoTitle} description={seoDescription} />
+      {breadcrumbJsonLd ? (
+        <JsonLd id={`jsonld-breadcrumb-${service.slug}`} data={breadcrumbJsonLd} />
+      ) : null}
+      {faqJsonLd ? <JsonLd id={`jsonld-faq-${service.slug}`} data={faqJsonLd} /> : null}
+      {serviceJsonLd ? <JsonLd id={`jsonld-service-${service.slug}`} data={serviceJsonLd} /> : null}
       <Navbar />
       
       {/* Hero Section */}

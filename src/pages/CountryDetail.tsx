@@ -5,14 +5,52 @@ import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import { Button } from "@/components/ui/button";
 import { getCountryBySlug } from "@/data/countryData";
+import SEO from "@/components/SEO";
+import JsonLd from "@/components/JsonLd";
+import { getSiteOrigin } from "@/lib/seo";
 
 const CountryDetail = () => {
   const { country } = useParams<{ country: string }>();
   const countryData = country ? getCountryBySlug(country) : undefined;
+  const origin = getSiteOrigin();
+  const seoTitle = countryData
+    ? `Study in ${countryData.name}`
+    : "Country Not Found";
+  const seoDescription = countryData
+    ? `Complete guide to studying in ${countryData.name}: top universities, courses, admission requirements, and visa support.`
+    : "The requested study abroad country was not found.";
+  const seoImage = countryData?.heroImage;
+  const breadcrumbJsonLd = countryData
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: `${origin}/`,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Study Abroad",
+            item: `${origin}/study-abroad`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: `Study in ${countryData.name}`,
+            item: `${origin}/study-abroad/${countryData.slug}`,
+          },
+        ],
+      }
+    : null;
 
   if (!countryData) {
     return (
       <div className="min-h-screen">
+        <SEO title={seoTitle} description={seoDescription} noIndex />
         <Navbar />
         <div className="container mx-auto px-4 py-20 text-center">
           <h1 className="text-3xl font-bold mb-4">Country Not Found</h1>
@@ -33,6 +71,10 @@ const CountryDetail = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO title={seoTitle} description={seoDescription} image={seoImage} />
+      {breadcrumbJsonLd ? (
+        <JsonLd id={`jsonld-breadcrumb-${countryData.slug}`} data={breadcrumbJsonLd} />
+      ) : null}
       <Navbar />
 
       {/* Hero Section */}

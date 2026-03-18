@@ -18,11 +18,48 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from "@/components/ui/badge";
 import EnquiryFormModal from "@/components/EnquiryFormModal";
 import { getMBBSCountryBySlug, mbbsCountries } from "@/data/mbbsData";
+import SEO from "@/components/SEO";
+import JsonLd from "@/components/JsonLd";
+import { getSiteOrigin } from "@/lib/seo";
 
 const MBBSCountryDetail = () => {
   const { country } = useParams<{ country: string }>();
   const countryData = country ? getMBBSCountryBySlug(country) : undefined;
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
+  const origin = getSiteOrigin();
+  const seoTitle = countryData
+    ? `MBBS in ${countryData.name}`
+    : "MBBS Country Not Found";
+  const seoDescription = countryData
+    ? `MBBS in ${countryData.name}: universities, fees, eligibility, documents, and counselling support.`
+    : "The requested MBBS country was not found.";
+  const seoImage = countryData?.heroImage;
+  const breadcrumbJsonLd = countryData
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: `${origin}/`,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "MBBS Overseas",
+            item: `${origin}/mbbs-overseas`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: `MBBS in ${countryData.name}`,
+            item: `${origin}/mbbs-overseas/${countryData.slug}`,
+          },
+        ],
+      }
+    : null;
   const fallbackFeeStructure = [
     "Tuition fee: varies by university and program duration",
     "Hostel/accommodation: depends on city and housing type",
@@ -40,6 +77,7 @@ const MBBSCountryDetail = () => {
   if (!countryData) {
     return (
       <div className="min-h-screen">
+        <SEO title={seoTitle} description={seoDescription} noIndex />
         <Navbar />
         <div className="container mx-auto px-4 py-20 text-center">
           <h1 className="text-3xl font-bold mb-4">Country Not Found</h1>
@@ -60,6 +98,10 @@ const MBBSCountryDetail = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO title={seoTitle} description={seoDescription} image={seoImage} />
+      {breadcrumbJsonLd ? (
+        <JsonLd id={`jsonld-breadcrumb-${countryData.slug}`} data={breadcrumbJsonLd} />
+      ) : null}
       <Navbar />
 
       {/* Breadcrumb */}

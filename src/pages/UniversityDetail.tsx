@@ -20,16 +20,73 @@ import {
 } from "lucide-react";
 import EnquiryFormModal from "@/components/EnquiryFormModal";
 import { useState } from "react";
+import SEO from "@/components/SEO";
+import JsonLd from "@/components/JsonLd";
+import { getSiteOrigin } from "@/lib/seo";
 
 const UniversityDetail = () => {
   const { universitySlug } = useParams<{ universitySlug: string }>();
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
   
   const result = universitySlug ? getUniversityBySlug(universitySlug) : undefined;
-  
+  const origin = getSiteOrigin();
+  const seoTitle = result
+    ? `${result.university.name} | MBBS in ${result.country.name}`
+    : "University Not Found";
+  const seoDescription = result
+    ? `Details of ${result.university.name} for MBBS in ${result.country.name}: fees, duration, recognition, and admission guidance.`
+    : "The requested MBBS university was not found.";
+  const seoImage = result?.university.image || result?.country.heroImage;
+  const breadcrumbJsonLd = result
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: `${origin}/`,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "MBBS Overseas",
+            item: `${origin}/mbbs-overseas`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: result.country.name,
+            item: `${origin}/mbbs-overseas/${result.country.slug}`,
+          },
+          {
+            "@type": "ListItem",
+            position: 4,
+            name: result.university.name,
+            item: `${origin}/mbbs-overseas/${result.country.slug}/${result.university.slug}`,
+          },
+        ],
+      }
+    : null;
+  const universityJsonLd = result
+    ? {
+        "@context": "https://schema.org",
+        "@type": "CollegeOrUniversity",
+        name: result.university.name,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: result.university.location,
+          addressCountry: result.country.name,
+        },
+        url: `${origin}/mbbs-overseas/${result.country.slug}/${result.university.slug}`,
+      }
+    : null;
+
   if (!result) {
     return (
       <div className="min-h-screen flex flex-col">
+        <SEO title={seoTitle} description={seoDescription} noIndex />
         <Navbar />
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center">
@@ -51,6 +108,13 @@ const UniversityDetail = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO title={seoTitle} description={seoDescription} image={seoImage} />
+      {breadcrumbJsonLd ? (
+        <JsonLd id={`jsonld-breadcrumb-${result.university.slug}`} data={breadcrumbJsonLd} />
+      ) : null}
+      {universityJsonLd ? (
+        <JsonLd id={`jsonld-university-${result.university.slug}`} data={universityJsonLd} />
+      ) : null}
       <Navbar />
       
       {/* Hero Section */}

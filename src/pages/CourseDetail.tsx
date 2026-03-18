@@ -4,6 +4,9 @@ import Footer from "@/components/Footer";
 import { coursesData } from "@/data/coursesData";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import SEO from "@/components/SEO";
+import JsonLd from "@/components/JsonLd";
+import { getSiteOrigin } from "@/lib/seo";
 import { 
   GraduationCap, 
   Briefcase, 
@@ -17,10 +20,50 @@ import {
 const CourseDetail = () => {
   const { courseSlug } = useParams<{ courseSlug: string }>();
   const course = courseSlug ? coursesData[courseSlug] : null;
+  const origin = getSiteOrigin();
+  const seoTitle = course ? `${course.title} Abroad` : "Course Not Found";
+  const seoDescription = course
+    ? `Study ${course.title} abroad with program options, eligibility, top destinations, and career paths.`
+    : "The requested course page was not found.";
+  const breadcrumbJsonLd = course
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: `${origin}/`,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: course.title,
+            item: `${origin}/courses/${course.slug}`,
+          },
+        ],
+      }
+    : null;
+  const courseJsonLd = course
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        name: course.title,
+        description: course.heroDescription,
+        url: `${origin}/courses/${course.slug}`,
+        provider: {
+          "@type": "Organization",
+          name: "GoGlobalEdTechPvtLtd",
+          url: origin,
+        },
+      }
+    : null;
 
   if (!course) {
     return (
       <div className="min-h-screen bg-background">
+        <SEO title={seoTitle} description={seoDescription} noIndex />
         <Navbar />
         <div className="container mx-auto px-4 py-20 text-center">
           <h1 className="text-4xl font-bold mb-4">Course Not Found</h1>
@@ -36,6 +79,11 @@ const CourseDetail = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title={seoTitle} description={seoDescription} />
+      {breadcrumbJsonLd ? (
+        <JsonLd id={`jsonld-breadcrumb-course-${course.slug}`} data={breadcrumbJsonLd} />
+      ) : null}
+      {courseJsonLd ? <JsonLd id={`jsonld-course-${course.slug}`} data={courseJsonLd} /> : null}
       <Navbar />
       
       {/* Hero Section */}

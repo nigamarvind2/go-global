@@ -3,6 +3,15 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
+import SEO from "@/components/SEO";
+import JsonLd from "@/components/JsonLd";
+import { getSiteOrigin } from "@/lib/seo";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 interface CountryCard {
   name: string;
@@ -113,8 +122,87 @@ const countries: CountryCard[] = [
 ];
 
 const StudyAbroad = () => {
+  const origin = getSiteOrigin();
+  const faqs = [
+    {
+      question: "Which country should I choose for study abroad?",
+      answer:
+        "We shortlist countries based on your course, budget, academics, and post-study goals. Book a free counselling call to get a tailored comparison.",
+    },
+    {
+      question: "What documents are required for study abroad?",
+      answer:
+        "Common documents include transcripts, passport, SOP/LOI, LORs, resume, and test scores (IELTS/TOEFL/GRE/GMAT as needed). We provide a country-specific checklist.",
+    },
+    {
+      question: "How early should I start my application?",
+      answer:
+        "Ideally 8-12 months before intake. This gives you time for tests, SOP/LORs, and scholarship or visa planning.",
+    },
+    {
+      question: "Do you help with scholarships and education loans?",
+      answer:
+        "Yes. We match scholarships and connect you with loan partners based on destination and eligibility.",
+    },
+    {
+      question: "Can you help with visa and interview preparation?",
+      answer:
+        "Absolutely. We handle documentation review, application filing, and mock interviews for visa readiness.",
+    },
+  ];
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${origin}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Study Abroad",
+        item: `${origin}/study-abroad`,
+      },
+    ],
+  };
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: countries.map((country, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Country",
+        name: country.name,
+        url: `${origin}/study-abroad/${country.slug}`,
+      },
+    })),
+  };
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Study Abroad Destinations"
+        description="Explore top study abroad destinations and get expert guidance on universities, courses, admissions, and visas."
+      />
+      <JsonLd id="jsonld-breadcrumb-study-abroad" data={breadcrumbJsonLd} />
+      <JsonLd id="jsonld-itemlist-study-abroad" data={itemListJsonLd} />
+      <JsonLd id="jsonld-faq-study-abroad" data={faqJsonLd} />
       <Navbar />
       
       {/* Hero Section */}
@@ -179,6 +267,29 @@ const StudyAbroad = () => {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-muted/40">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <p className="eyebrow">FAQs</p>
+            <h2 className="section-title mt-2">Study Abroad Questions</h2>
+            <p className="section-subtitle mx-auto">
+              Clear answers to the most common study abroad questions we receive from students in India.
+            </p>
+          </div>
+          <div className="max-w-3xl mx-auto bg-card border border-border rounded-2xl p-6">
+            <Accordion type="single" collapsible>
+              {faqs.map((faq) => (
+                <AccordionItem key={faq.question} value={faq.question}>
+                  <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">{faq.answer}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>

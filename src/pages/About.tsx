@@ -1,10 +1,33 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
+import SEO from "@/components/SEO";
+import JsonLd from "@/components/JsonLd";
+import { getSiteOrigin } from "@/lib/seo";
 
 const About = () => {
+  const origin = getSiteOrigin();
+  const aboutJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "About GoGlobalEdTechPvtLtd",
+    url: `${origin}/about`,
+    description:
+      "Learn how GoGlobalEdTechPvtLtd helps students plan, apply, and succeed with study abroad and MBBS overseas admissions.",
+    mainEntity: {
+      "@type": "Organization",
+      name: "GoGlobalEdTechPvtLtd",
+      url: origin,
+    },
+  };
+
   return (
     <div className="min-h-screen">
+      <SEO
+        title="About Go Global EdTech"
+        description="Learn about Go Global EdTech and how we help students plan, apply, and succeed with study abroad and MBBS overseas admissions."
+      />
+      <JsonLd id="jsonld-about-page" data={aboutJsonLd} />
       <Navbar />
 
       <section className="py-20 md:py-24 bg-aurora relative overflow-hidden">

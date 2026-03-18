@@ -1,0 +1,32 @@
+# GoGlobalEdTechPvtLtd
+
+GoGlobalEdTechPvtLtd is an India-based study abroad consultancy that helps students plan, apply, and succeed overseas. We provide free counselling, university shortlisting, admissions documentation, visa guidance, and MBBS abroad support.
+
+## Core Services
+- Study abroad counselling and shortlisting
+- University admissions and documentation support
+- SOP/LOR writing assistance
+- Test preparation guidance
+- Education loan and scholarship assistance
+- Visa processing support
+- Accommodation guidance
+
+## Primary Audience
+- Students in India seeking undergraduate or postgraduate study abroad
+- Students exploring MBBS abroad options
+
+## Location & Contact
+- Address: 162 B Brijeshwari NXB, Indore, Madhya Pradesh, India
+- Phone: +91 91666 64558
+- Email: goglobalstudyedtech@gmail.com
+
+## Key Pages
+- / (Home)
+- /study-abroad
+- /mbbs-overseas
+- /services
+- /about
+- /contact
+
+## Sitemap
+- https://goglobaledtech.com/sitemap.xml

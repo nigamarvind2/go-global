@@ -1,9 +1,14 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const Privacy = () => {
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Privacy Policy"
+        description="Read the Go Global EdTech privacy policy and how we handle your data for study abroad counselling."
+      />
       <Navbar />
       <section className="py-20 md:py-24 bg-background">
         <div className="container mx-auto px-4 max-w-3xl space-y-6">

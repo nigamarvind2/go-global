@@ -22,6 +22,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import EnquiryFormModal from "@/components/EnquiryFormModal";
 import { mbbsCountries, comparisonData, whyStudyAbroadBenefits } from "@/data/mbbsData";
+import SEO from "@/components/SEO";
+import JsonLd from "@/components/JsonLd";
+import { getSiteOrigin } from "@/lib/seo";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const iconMap: Record<string, React.ReactNode> = {
   wallet: <Wallet className="w-8 h-8" />,
@@ -36,9 +45,88 @@ const iconMap: Record<string, React.ReactNode> = {
 
 const MBBSOverseas = () => {
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
+  const origin = getSiteOrigin();
+  const faqs = [
+    {
+      question: "Is NEET required for MBBS abroad?",
+      answer:
+        "Yes. For Indian students, a valid NEET qualification is required as per NMC guidelines.",
+    },
+    {
+      question: "Are MBBS degrees abroad recognized in India?",
+      answer:
+        "Recognition depends on the university and country. We shortlist NMC/WDOMS listed options and guide you on licensing requirements.",
+    },
+    {
+      question: "What is the typical MBBS duration abroad?",
+      answer:
+        "Most programs are 5-6 years depending on country, university, and internship requirements.",
+    },
+    {
+      question: "What are the total costs for MBBS abroad?",
+      answer:
+        "Costs vary by country and university. We provide a complete fee sheet covering tuition, hostel, and living expenses.",
+    },
+    {
+      question: "Do you help with admission and visa?",
+      answer:
+        "Yes. We handle university shortlisting, document verification, applications, and visa processing end-to-end.",
+    },
+  ];
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${origin}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "MBBS Overseas",
+        item: `${origin}/mbbs-overseas`,
+      },
+    ],
+  };
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: mbbsCountries.map((country, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Country",
+        name: country.name,
+        url: `${origin}/mbbs-overseas/${country.slug}`,
+      },
+    })),
+  };
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="MBBS Abroad"
+        description="Explore MBBS overseas options with NMC & WHO recognized universities, fees, eligibility, and expert counselling."
+        image="/assets/unsplash-1523580846011-d3a5bc25702b.jpg"
+      />
+      <JsonLd id="jsonld-breadcrumb-mbbs" data={breadcrumbJsonLd} />
+      <JsonLd id="jsonld-itemlist-mbbs" data={itemListJsonLd} />
+      <JsonLd id="jsonld-faq-mbbs" data={faqJsonLd} />
       <Navbar />
 
       {/* Hero Section */}
@@ -222,6 +310,29 @@ const MBBSOverseas = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <p className="eyebrow">FAQs</p>
+            <h2 className="section-title mt-2">MBBS Abroad FAQs</h2>
+            <p className="section-subtitle mx-auto">
+              Quick answers to help you plan your MBBS overseas journey with clarity.
+            </p>
+          </div>
+          <div className="max-w-3xl mx-auto bg-card border border-border rounded-2xl p-6">
+            <Accordion type="single" collapsible>
+              {faqs.map((faq) => (
+                <AccordionItem key={faq.question} value={faq.question}>
+                  <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">{faq.answer}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>

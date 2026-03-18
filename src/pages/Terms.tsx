@@ -1,9 +1,14 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const Terms = () => {
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Terms of Service"
+        description="Review the Go Global EdTech terms of service for counselling and study abroad guidance."
+      />
       <Navbar />
       <section className="py-20 md:py-24 bg-background">
         <div className="container mx-auto px-4 max-w-3xl space-y-6">
