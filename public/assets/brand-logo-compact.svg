@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 80" role="img" aria-label="GoGlobalEdTech">
+  <g>
+    <text x="0" y="62" font-family="Poppins, Arial, sans-serif" font-size="64" font-weight="800" fill="#143A6B">G</text>
+    <g transform="translate(64 12)">
+      <circle cx="28" cy="28" r="26" fill="#ffffff" stroke="#143A6B" stroke-width="4" />
+      <path d="M28 2 A26 26 0 0 1 54 28 A26 26 0 0 1 28 54 Z" fill="#22c55e" />
+      <path d="M2 28 H54" stroke="#143A6B" stroke-width="2" opacity="0.7" />
+      <path d="M28 2 V54" stroke="#143A6B" stroke-width="2" opacity="0.7" />
+      <path d="M36 16 L50 28 L36 40" stroke="#143A6B" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+  </g>
+  <text x="130" y="58" font-family="Poppins, Arial, sans-serif" font-size="32" font-weight="700" letter-spacing="0.5">
+    <tspan fill="#22c55e">GO</tspan><tspan fill="#143A6B">GLOBAL</tspan><tspan fill="#1F2937">EDTECH</tspan>
+  </text>
+</svg>

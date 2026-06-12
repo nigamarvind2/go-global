@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" role="img" aria-label="GoGlobalEdTech">
+  <g>
+    <text x="0" y="70" font-family="Poppins, Arial, sans-serif" font-size="72" font-weight="800" fill="#143A6B">G</text>
+    <g transform="translate(70 18)">
+      <circle cx="30" cy="30" r="28" fill="#ffffff" stroke="#143A6B" stroke-width="4" />
+      <path d="M30 2 A28 28 0 0 1 58 30 A28 28 0 0 1 30 58 Z" fill="#22c55e" />
+      <path d="M2 30 H58" stroke="#143A6B" stroke-width="2" opacity="0.7" />
+      <path d="M30 2 V58" stroke="#143A6B" stroke-width="2" opacity="0.7" />
+      <path d="M38 18 L52 30 L38 42" stroke="#143A6B" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+  </g>
+  <text x="140" y="66" font-family="Poppins, Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="0.5">
+    <tspan fill="#22c55e">GO</tspan><tspan fill="#143A6B">GLOBAL</tspan><tspan fill="#1F2937">EDTECH</tspan>
+  </text>
+  <text x="140" y="92" font-family="Poppins, Arial, sans-serif" font-size="16" font-weight="500" fill="#475569">
+    Empowering Global Education &amp; Careers
+  </text>
+</svg>
