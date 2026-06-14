@@ -4,67 +4,73 @@ const founders = [
   {
     name: "Arvind Nigam",
     role: "Co-founder & CEO",
-    initials: "AN",
+    image: "/assets/cofounder-arvind.jpg",
     bio: "Leads GoGlobal's vision and strategy, ensuring every student receives honest, expert-driven guidance for their study abroad journey.",
   },
   {
     name: "Madhulika Nigam",
     role: "Co-founder & COO",
-    initials: "MN",
+    image: "/assets/cofounder-madhulika.jpg",
     bio: "Oversees day-to-day operations and counselling quality, making sure every student's application process is seamless and stress-free.",
   },
 ];
 
 const Team = () => {
   return (
-    <section className="px-6 md:px-8 py-12 bg-gradient-to-b from-primary/[0.03] to-transparent">
-      <div className="mb-6">
+    <section className="bg-gradient-to-b from-primary/[0.05] via-background to-transparent px-6 py-12 md:px-8 md:py-14">
+      <div className="mb-8 text-center">
         <span className="eyebrow text-primary">Our Team</span>
         <h2 className="section-title mt-1.5 mb-2">Meet the founders</h2>
-        <p className="section-subtitle">
+        <p className="section-subtitle mx-auto">
           Built by people who believe every student deserves clear, honest
           guidance when choosing where to study.
         </p>
       </div>
 
-      <div className="grid sm:grid-cols-2 gap-4">
-        {founders.map((f) => (
-          <div key={f.name} className="content-card p-5 border-l-2 border-l-primary/30">
-            <div className="flex items-start gap-4">
-              {/* Avatar */}
-              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center flex-shrink-0">
-                <span className="text-lg font-bold text-primary">
-                  {f.initials}
-                </span>
+      <div className="grid gap-5 lg:grid-cols-2">
+        {founders.map((founder) => (
+          <div
+            key={founder.name}
+            className="content-card overflow-hidden border-primary/10 bg-white/80 p-0 shadow-sm"
+          >
+            <div className="grid items-stretch md:grid-cols-[260px_1fr]">
+              <div className="relative flex min-h-[320px] items-center justify-center bg-gradient-to-br from-primary/10 via-white to-accent/10 p-3">
+                <img
+                  src={founder.image}
+                  alt={founder.name}
+                  className="h-full max-h-[360px] w-full rounded-xl object-contain object-top shadow-sm"
+                />
               </div>
 
-              {/* Info */}
-              <div className="flex-1 min-w-0">
-                <h3 className="font-semibold text-sm text-foreground">
-                  {f.name}
+              <div className="min-w-0 p-6">
+                <div className="inline-flex rounded-full bg-accent/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-accent">
+                  Co-Founder
+                </div>
+
+                <h3 className="mt-3 text-lg font-semibold text-foreground">
+                  {founder.name}
                 </h3>
-                <p className="text-xs text-primary font-medium mt-0.5">
-                  {f.role}
+                <p className="mt-1 text-sm font-medium text-primary">
+                  {founder.role}
                 </p>
-                <p className="text-xs text-muted-foreground leading-relaxed mt-2">
-                  {f.bio}
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {founder.bio}
                 </p>
 
-                {/* Contact links */}
-                <div className="flex items-center gap-2 mt-3">
+                <div className="mt-4 flex items-center gap-2">
                   <a
                     href="mailto:goglobalstudyedtech@gmail.com"
-                    className="w-7 h-7 rounded-md bg-muted/60 flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors text-muted-foreground"
-                    aria-label={`Email ${f.name}`}
+                    className="flex h-9 w-9 items-center justify-center rounded-lg bg-muted/60 text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
+                    aria-label={`Email ${founder.name}`}
                   >
-                    <Mail className="w-3.5 h-3.5" />
+                    <Mail className="h-3.5 w-3.5" />
                   </a>
                   <a
                     href="#"
-                    className="w-7 h-7 rounded-md bg-muted/60 flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors text-muted-foreground"
-                    aria-label={`${f.name} on LinkedIn`}
+                    className="flex h-9 w-9 items-center justify-center rounded-lg bg-muted/60 text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
+                    aria-label={`${founder.name} on LinkedIn`}
                   >
-                    <Linkedin className="w-3.5 h-3.5" />
+                    <Linkedin className="h-3.5 w-3.5" />
                   </a>
                 </div>
               </div>
