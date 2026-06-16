@@ -33,12 +33,12 @@ const Team = () => {
             key={founder.name}
             className="content-card overflow-hidden border-primary/10 bg-white/80 p-0 shadow-sm"
           >
-            <div className="grid items-stretch md:grid-cols-[260px_1fr]">
-              <div className="relative flex min-h-[320px] items-center justify-center bg-gradient-to-br from-primary/10 via-white to-accent/10 p-3">
+            <div className="grid items-stretch md:grid-cols-[180px_1fr]">
+              <div className="relative flex items-center justify-center bg-gradient-to-br from-primary/10 via-white to-accent/10 p-5">
                 <img
                   src={founder.image}
                   alt={founder.name}
-                  className="h-full max-h-[360px] w-full rounded-xl object-contain object-top shadow-sm"
+                  className="h-36 w-36 rounded-xl object-cover object-top shadow-sm sm:h-40 sm:w-40"
                 />
               </div>
 
