@@ -62,13 +62,13 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
     <>
       <aside className={`app-sidebar ${isOpen ? "open" : ""}`}>
         {/* Header */}
-        <div className="flex items-center justify-between px-4 py-4 border-b border-border/60">
+        <div className="app-brand-header flex items-center justify-between px-4 py-4 border-b">
           <Link to="/" onClick={handleLinkClick} className="flex items-center gap-2">
             <BrandMark size="sm" />
           </Link>
           <button
             onClick={onClose}
-            className="lg:hidden p-1.5 rounded-md hover:bg-muted transition-colors"
+            className="lg:hidden p-1.5 rounded-md transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
