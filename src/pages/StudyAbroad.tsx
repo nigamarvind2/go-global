@@ -4,6 +4,7 @@ import PageHeader from "@/components/PageHeader";
 import CTA from "@/components/CTA";
 import SEO from "@/components/SEO";
 import JsonLd from "@/components/JsonLd";
+import VideoTestimonials from "@/components/VideoTestimonials";
 import { getSiteOrigin } from "@/lib/seo";
 import {
   Accordion,
@@ -238,6 +239,10 @@ const StudyAbroad = () => {
             </Link>
           ))}
         </div>
+      </div>
+
+      <div className="page-content pt-0">
+        <VideoTestimonials topics={["immigration"]} compact />
       </div>
 
       {/* FAQ Section */}

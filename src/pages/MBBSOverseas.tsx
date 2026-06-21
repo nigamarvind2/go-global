@@ -12,6 +12,7 @@ import EnquiryFormModal from "@/components/EnquiryFormModal";
 import { mbbsCountries, comparisonData, whyStudyAbroadBenefits } from "@/data/mbbsData";
 import SEO from "@/components/SEO";
 import JsonLd from "@/components/JsonLd";
+import VideoTestimonials from "@/components/VideoTestimonials";
 import { getSiteOrigin } from "@/lib/seo";
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
@@ -164,6 +165,9 @@ const MBBSOverseas = () => {
             ))}
           </div>
         </div>
+
+        {/* Student video stories */}
+        <VideoTestimonials topics={["mbbs"]} compact />
 
         {/* FAQ */}
         <div className="mb-10">

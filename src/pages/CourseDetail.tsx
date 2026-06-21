@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import SEO from "@/components/SEO";
 import JsonLd from "@/components/JsonLd";
+import VideoTestimonials from "@/components/VideoTestimonials";
 import { getSiteOrigin } from "@/lib/seo";
 import { GraduationCap, Briefcase, MapPin, CheckCircle, Star, ArrowRight } from "lucide-react";
 
@@ -135,6 +136,10 @@ const CourseDetail = () => {
             </ul>
           </div>
         </div>
+
+        {course.slug === "business-mba" && (
+          <VideoTestimonials topics={["mba"]} compact />
+        )}
       </div>
 
       <CTA />

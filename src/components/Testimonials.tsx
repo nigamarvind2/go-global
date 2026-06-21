@@ -1,4 +1,5 @@
 import { Quote, Star } from "lucide-react";
+import VideoTestimonials from "@/components/VideoTestimonials";
 
 const testimonials = [
   {
@@ -33,64 +34,75 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="px-6 md:px-8 py-12 bg-gradient-to-b from-accent/[0.04] to-transparent">
-      <div className="mb-6">
-        <span className="eyebrow text-accent">Student Stories</span>
-        <h2 className="section-title mt-1.5 mb-2">
-          Hear from students we've helped
-        </h2>
-        <p className="section-subtitle">
-          Real experiences from students who trusted us with their study abroad
-          journey.
-        </p>
-      </div>
+    <>
+      <section className="px-6 pb-4 pt-12 md:px-8">
+        <div className="section-shell mb-6">
+          <span className="eyebrow text-accent">Student Stories</span>
+          <h2 className="section-title section-title-accent mt-1.5 mb-2">
+            Hear from students we&apos;ve helped
+          </h2>
+          <p className="section-subtitle">
+            Real experiences from students who trusted us with their study
+            abroad journey.
+          </p>
+        </div>
 
-      <div className="grid sm:grid-cols-2 gap-4">
-        {testimonials.map((t) => (
-          <div key={t.name} className="content-card p-5 flex flex-col border-l-2 border-l-accent/30">
-            {/* Quote icon + rating */}
-            <div className="flex items-center justify-between mb-3">
-              <div className="w-8 h-8 rounded-lg bg-primary/8 flex items-center justify-center">
-                <Quote className="w-4 h-4 text-primary" />
+        <div className="grid gap-4 sm:grid-cols-2">
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={testimonial.name}
+              className="content-card testimonial-card flex flex-col p-5"
+            >
+            <div className="mb-3 flex items-center justify-between">
+              <div
+                className={`flex h-8 w-8 items-center justify-center rounded-lg ${
+                  index % 2 === 0 ? "bg-primary/10" : "bg-accent/10"
+                }`}
+              >
+                <Quote
+                  className={`h-4 w-4 ${
+                    index % 2 === 0 ? "text-primary" : "text-accent"
+                  }`}
+                />
               </div>
               <div className="flex gap-0.5">
-                {Array.from({ length: t.rating }).map((_, i) => (
+                {Array.from({ length: testimonial.rating }).map((_, i) => (
                   <Star
                     key={i}
-                    className="w-3.5 h-3.5 text-amber-400 fill-amber-400"
+                    className="h-3.5 w-3.5 fill-amber-400 text-amber-400"
                   />
                 ))}
               </div>
             </div>
 
-            {/* Quote text */}
-            <p className="text-xs text-muted-foreground leading-relaxed flex-1 mb-4">
-              "{t.text}"
+            <p className="mb-4 flex-1 text-xs leading-relaxed text-muted-foreground">
+              "{testimonial.text}"
             </p>
 
-            {/* Author */}
-            <div className="flex items-center gap-3 pt-3 border-t border-border/60">
-              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+            <div className="flex items-center gap-3 border-t border-border/60 pt-3">
+              <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary/10">
                 <span className="text-xs font-semibold text-primary">
-                  {t.name
+                  {testimonial.name
                     .split(" ")
-                    .map((n) => n[0])
+                    .map((namePart) => namePart[0])
                     .join("")}
                 </span>
               </div>
               <div>
-                <p className="text-sm font-medium text-foreground leading-tight">
-                  {t.name}
+                <p className="text-sm font-medium leading-tight text-foreground">
+                  {testimonial.name}
                 </p>
-                <p className="text-[11px] text-muted-foreground leading-tight mt-0.5">
-                  {t.course} · {t.university}
+                <p className="mt-0.5 text-[11px] leading-tight text-muted-foreground">
+                  {testimonial.course} | {testimonial.university}
                 </p>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-    </section>
+            </div>
+          ))}
+        </div>
+      </section>
+      <VideoTestimonials />
+    </>
   );
 };
 
